@@ -1,7 +1,7 @@
 import React from "react";
 import { useEffect } from "react";
 import "./Slider.css";
-import SldierImg from "../../../images/slider_image.png";
+import SldierImg from "../../../images/slider_image.webp";
 
 const Slider = () => {
     useEffect(() => {

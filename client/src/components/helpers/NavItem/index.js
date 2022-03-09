@@ -9,7 +9,7 @@ const NavItem = ({ item, text, onHover, offHover }) => {
             onMouseLeave={(e) => offHover(e.target)}
             onClick={() => {
                 window.scrollTo({
-                    top: document.getElementById("contact").offsetTop - 100,
+                    top: document.getElementById(item).offsetTop - 100,
                     behavior: "smooth",
                 });
             }}

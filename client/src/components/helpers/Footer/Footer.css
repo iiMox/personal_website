@@ -1,0 +1,88 @@
+footer {
+    border-top: 1px solid #af4eff;
+    padding: 15px 0;
+    position: relative;
+}
+
+footer .socials {
+    margin: 10px 0;
+}
+
+footer .socials ul {
+    padding: 11px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+}
+
+footer .socials ul li {
+    display: flex;
+    padding: 10px;
+    border: 1px solid #af4eff;
+    width: 50px;
+    height: 50px;
+    align-items: center;
+    justify-content: center;
+    margin: 0 10px;
+    border-radius: 50%;
+}
+
+footer .socials ul li:not(:last-of-type) {
+    margin-right: 10px;
+}
+
+footer .socials ul li:hover {
+    cursor: pointer;
+    transform: rotate(360deg);
+    transition: all 0.7s ease-in-out;
+}
+
+footer .socials ul li a {
+    color: #af4eff;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+footer .socials ul li a img {
+    width: 75%;
+}
+
+footer .copyright {
+    color: #999;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+footer .copyright span {
+    color: #af4eff;
+    margin-left: 5px;
+}
+
+footer .arrow-up {
+    background-image: linear-gradient(to bottom right, #af4eff, #2e23bd);
+    position: absolute;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    top: 50%;
+    transform: translateY(25%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    right: 5%;
+    transition: all 0.3s ease-in-out;
+}
+
+footer .arrow-up:hover {
+    cursor: pointer;
+    transform: translateY(-30%);
+}
+
+footer .arrow-up img {
+    width: 50%;
+}

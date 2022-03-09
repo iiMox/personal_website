@@ -6,7 +6,7 @@ import "./Navbar.css";
 const Navbar = () => {
     const items = [
         { id: 1, item: "about", text: "About" },
-        { id: 2, item: "skills", text: "Services" },
+        { id: 2, item: "services", text: "Services" },
         { id: 3, item: "gallery", text: "Gallery" },
         { id: 4, item: "contact", text: "Contact us" },
     ];
