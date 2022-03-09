@@ -1,0 +1,65 @@
+nav {
+    border-bottom: 1px solid #af4eff;
+    display: flex;
+    align-items: center;
+}
+
+nav .links {
+    overflow: hidden;
+}
+
+nav .links ul {
+    padding: 0;
+    margin: 10px 0 0;
+    font-size: 18px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    letter-spacing: 0.8px;
+}
+
+nav .links ul li:not(:last-of-type) {
+    margin-right: 40px;
+}
+
+nav .links ul .ul-hover {
+    position: absolute;
+    z-index: -1;
+    background-color: #af4eff;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    bottom: -47px;
+    transition: height 0.35s ease-in-out;
+}
+
+@media (max-width: 575px) {
+    nav .links ul {
+        margin: 10px 0 0;
+        font-size: 15px;
+    }
+
+    nav .links ul li:not(:last-of-type) {
+        margin-right: 10px;
+    }
+}
+
+@media (min-width: 576px) and (max-width: 767px) {
+    nav .links ul {
+        margin: 10px 0 0;
+        font-size: 17px;
+    }
+
+    nav .links ul li:not(:last-of-type) {
+        margin-right: 20px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+}
+
+@media (min-width: 1200px) {
+} ;
