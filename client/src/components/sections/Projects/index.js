@@ -1,4 +1,5 @@
 import React from "react";
+import Project from "../../helpers/Project";
 import "./Projects.css";
 
 const Projects = () => {

@@ -1,7 +1,7 @@
 import React from "react";
 import { useEffect } from "react";
 import "./Slider.css";
-import SldierImg from "../../../images/slider_image.webp";
+import SliderImg from "../../../images/slider_image.webp";
 
 const Slider = () => {
     useEffect(() => {
@@ -24,7 +24,7 @@ const Slider = () => {
                     </p>
                 </div>
                 <div className='image-box'>
-                    <img src={SldierImg} alt='Slider' />
+                    <img src={SliderImg} alt='Slider' />
                 </div>
             </div>
         </div>

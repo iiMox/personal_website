@@ -1,4 +1,6 @@
 import React from "react";
+import Service from "../../helpers/Service";
+import Skill from "../../helpers/Skill";
 import "./Services.css";
 
 const Services = () => {

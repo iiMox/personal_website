@@ -85,7 +85,7 @@
     border: 1px solid #fff;
     padding: 15px 30px;
     border-radius: 10px;
-    font-size: 15px;
+    font-size: 18px;
     font-weight: 600;
     letter-spacing: 1px;
     transition: all 0.4s ease-in-out;
@@ -104,4 +104,30 @@
 
 .contact form button:hover {
     transform: translateY(-5px);
+}
+
+@media (max-width: 575.98px) {
+    .contact form {
+        width: 75%;
+    }
+
+    .contact form button {
+        font-size: 15px;
+        padding: 15px 20px;
+    }
+}
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+}
+
+@media (min-width: 992px) and (max-width: 1199.98px) {
+}
+
+@media (min-width: 1200px) and (max-width: 1399px) {
+}
+
+@media (min-width: 1400px) and (max-width: 1599px) {
 }

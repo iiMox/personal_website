@@ -1,9 +1,34 @@
 import React from "react";
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import NavItem from "../NavItem";
 import "./Navbar.css";
+import menuIcon from "../../../images/menu.webp";
 
 const Navbar = () => {
+    useEffect(() => {
+        if (window.innerWidth < 576) {
+            linksRef.current.className = `${linksRef.current.className} hide`;
+        }
+
+        window.addEventListener("resize", () => {
+            if (window.innerWidth < 576) {
+                if (linksRef.current.className.includes("hide")) {
+                    linksRef.current.style.height = 0;
+                } else {
+                    linksRef.current.style.height =
+                        document.querySelector("nav .links ul").offsetHeight +
+                        "px";
+                }
+            } else {
+                linksRef.current.className = `links hide`;
+                linksRef.current.style.height =
+                    document.querySelector("nav .links ul").offsetHeight +
+                    10 +
+                    "px";
+            }
+        });
+    });
+
     const items = [
         { id: 1, item: "about", text: "About" },
         { id: 2, item: "services", text: "Services" },
@@ -12,6 +37,7 @@ const Navbar = () => {
     ];
 
     const ulHover = useRef(null);
+    const linksRef = useRef(null);
 
     const onHover = (li) => {
         ulHover.current.style.left = li.offsetLeft + "px";
@@ -28,7 +54,27 @@ const Navbar = () => {
     return (
         <nav>
             <div className='container'>
-                <div className='links'>
+                <div className='menu'>
+                    <img
+                        src={menuIcon}
+                        alt='Menu'
+                        onClick={() => {
+                            if (
+                                linksRef.current.style.height === "0px" ||
+                                linksRef.current.style.height === ""
+                            ) {
+                                linksRef.current.className = "links";
+                                linksRef.current.style.height =
+                                    document.querySelector("nav .links ul")
+                                        .offsetHeight + "px";
+                            } else {
+                                linksRef.current.style.height = 0;
+                                linksRef.current.className = `${linksRef.current.className} hide`;
+                            }
+                        }}
+                    />
+                </div>
+                <div className='links' ref={linksRef}>
                     <ul>
                         {items.map((item) => {
                             return (
