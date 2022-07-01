@@ -6,19 +6,20 @@
     height: 100%;
 }
 
-.login form img {
-    width: 100px;
+.login form > img {
+    width: 150px;
     margin-bottom: 35px;
 }
 
 .login form input {
     margin: 15px 0;
-    padding: 10px 15px;
+    padding: 12px 15px;
     border-radius: 5px;
-    border: 1px solid #999;
+    border: 1px solid transparent;
     min-width: 300px;
     font-size: 19px;
-    color: #999;
+    color: #bbb;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 .login form input:focus {
@@ -27,19 +28,68 @@
 }
 
 .login form input::placeholder {
-    color: #999;
+    color: #bbb;
 }
 
 .login form button {
-    padding: 10px 15px;
-    border-radius: 5px;
+    padding: 8px 40px;
+    border-radius: 10px;
     border: none;
     background-image: linear-gradient(to bottom right, #af4eff, #2e23bd);
     color: #fff;
-    font-size: 20px;
     font-weight: 500;
     letter-spacing: 1px;
     margin-top: 15px;
     min-width: 150px;
     cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    column-gap: 15px;
+    font-size: 19px;
+}
+
+.login form button:hover img {
+    transform: translateX(5px);
+}
+
+.login form button img {
+    width: 32px;
+    transition: all 0.2s ease-in-out;
+}
+
+@media (max-width: 575.98px) {
+    .login form > img {
+        width: 125px;
+    }
+
+    .login form input {
+        min-width: 200px;
+        font-size: 17px;
+    }
+
+    .login form button {
+        padding: 8px 30px;
+        font-size: 17px;
+    }
+
+    .login form button img {
+        width: 28px;
+    }
+}
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+}
+
+@media (min-width: 992px) and (max-width: 1199.98px) {
+}
+
+@media (min-width: 1200px) and (max-width: 1399px) {
+}
+
+@media (min-width: 1400px) and (max-width: 1599px) {
 }

@@ -1,0 +1,179 @@
+.common-dash .top {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.common-dash h2 {
+    font-size: 50px;
+    color: #a049f7;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.common-dash form {
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    column-gap: 15px;
+}
+
+.common-dash form .search {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    column-gap: 10px;
+}
+
+.common-dash form .search img {
+    width: 20px;
+}
+
+.common-dash form .search .wrapper {
+    position: relative;
+}
+
+.common-dash form .search .wrapper::after {
+    content: "";
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background-color: #999;
+    position: absolute;
+    transition: all 0.25s ease-in-out;
+}
+
+.common-dash form .search .wrapper:focus-within::after {
+    width: 100%;
+}
+
+.common-dash form .search input {
+    border: none;
+    color: #999;
+    font-size: 16px;
+    outline: none;
+    padding: 5px 10px 5px 0;
+    width: 150px;
+}
+
+.common-dash form .search input::placeholder {
+    color: #999;
+}
+
+.common-dash form .add {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border: 1px solid #999;
+    border-radius: 10px;
+    padding: 5px 15px;
+    cursor: pointer;
+    column-gap: 5px;
+}
+
+.common-dash form .add:hover img {
+    transform: rotateZ(180deg);
+}
+
+.common-dash form .add img {
+    width: 20px;
+    transition: all 0.5s ease-in-out;
+}
+
+.common-dash form .add button {
+    font-size: 16px;
+    border: none;
+    background-color: transparent;
+    color: #999;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.common-dash hr {
+    background-image: linear-gradient(to right, #af4eff, #2e23bd);
+    height: 1px;
+    border: none;
+}
+
+.common-dash table {
+    margin: 20px auto;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    border-radius: 7px;
+    overflow: hidden;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.common-dash table thead tr {
+    border-bottom: 1px solid #fff;
+    background-color: #a049f7;
+}
+
+.common-dash table thead tr th {
+    padding: 10px 15px;
+    font-size: 18px;
+    letter-spacing: 1px;
+    color: #fff;
+}
+
+.common-dash table tbody tr:not(:first-of-type) {
+    border-top: 1px solid #ddd;
+}
+
+.common-dash table tbody tr:nth-of-type(2n + 1) {
+    background-color: #f6f6f6;
+}
+
+.common-dash table tbody tr td {
+    padding: 8px 15px;
+    text-align: center;
+    font-size: 16px;
+}
+
+.common-dash table tbody tr td:not(:last-of-type) {
+    border-right: 1px solid #ddd;
+}
+
+.common-dash table tbody tr td:last-of-type {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    column-gap: 20px;
+}
+
+.common-dash table tbody tr:hover td img {
+    display: flex;
+}
+
+.common-dash table tbody tr td img {
+    width: 24px;
+    cursor: pointer;
+    display: none;
+    transition: all 0.2s ease-in-out;
+}
+
+.common-dash table tbody tr td img:hover {
+    transform: scale(1.2);
+}
+
+@media (max-width: 575.98px) {
+}
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+}
+
+@media (min-width: 992px) and (max-width: 1199.98px) {
+}
+
+@media (min-width: 1200px) and (max-width: 1399px) {
+}
+
+@media (min-width: 1400px) and (max-width: 1599px) {
+}
