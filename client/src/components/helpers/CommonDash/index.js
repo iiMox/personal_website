@@ -1,5 +1,8 @@
 import React from "react";
+import { useRef } from "react";
 import "./CommonDash.css";
+
+import AddWidget from "../AddWidget";
 
 import searchIcon from "../../../images/search.webp";
 import addIcon from "../../../images/add.webp";
@@ -7,6 +10,8 @@ import editIcon from "../../../images/edit.webp";
 import deleteIcon from "../../../images/delete.webp";
 
 const CommonDash = ({ title }) => {
+    const addRef = useRef(null);
+
     const skillsArray = [
         "N°",
         "Icon",
@@ -43,6 +48,7 @@ const CommonDash = ({ title }) => {
 
     return (
         <div className='common-dash'>
+            <AddWidget section={title} reference={addRef} />
             <div className='top'>
                 <h2>{title}</h2>
                 <form>
@@ -52,16 +58,25 @@ const CommonDash = ({ title }) => {
                             <input type='text' placeholder='Search...' />
                         </div>
                     </div>
-                    <div className='add'>
-                        <img src={addIcon} alt='Add' />
-                        <button
+                    {title !== "Messages" ? (
+                        <div
+                            className='add'
                             onClick={(e) => {
-                                e.preventDefault();
+                                addRef.current.style.display = "flex";
                             }}
                         >
-                            Add
-                        </button>
-                    </div>
+                            <img src={addIcon} alt='Add' />
+                            <button
+                                onClick={(e) => {
+                                    e.preventDefault();
+                                }}
+                            >
+                                Add
+                            </button>
+                        </div>
+                    ) : (
+                        ""
+                    )}
                 </form>
             </div>
             <hr />

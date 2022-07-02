@@ -5,14 +5,14 @@
     align-items: flex-end;
 }
 
-.common-dash h2 {
+.common-dash .top h2 {
     font-size: 50px;
     color: #a049f7;
     font-weight: bold;
     letter-spacing: 1px;
 }
 
-.common-dash form {
+.common-dash .top form {
     margin-bottom: 10px;
     display: flex;
     flex-direction: row;
