@@ -119,47 +119,6 @@
     color: #fff;
 }
 
-.common-dash table tbody tr:not(:first-of-type) {
-    border-top: 1px solid #ddd;
-}
-
-.common-dash table tbody tr:nth-of-type(2n + 1) {
-    background-color: #f6f6f6;
-}
-
-.common-dash table tbody tr td {
-    padding: 8px 15px;
-    text-align: center;
-    font-size: 16px;
-}
-
-.common-dash table tbody tr td:not(:last-of-type) {
-    border-right: 1px solid #ddd;
-}
-
-.common-dash table tbody tr td:last-of-type {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    column-gap: 20px;
-}
-
-.common-dash table tbody tr:hover td img {
-    display: flex;
-}
-
-.common-dash table tbody tr td img {
-    width: 24px;
-    cursor: pointer;
-    display: none;
-    transition: all 0.2s ease-in-out;
-}
-
-.common-dash table tbody tr td img:hover {
-    transform: scale(1.2);
-}
-
 @media (max-width: 575.98px) {
 }
 

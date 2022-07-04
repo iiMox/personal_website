@@ -3,14 +3,17 @@ import { useRef } from "react";
 import "./CommonDash.css";
 
 import AddWidget from "../AddWidget";
+import EditWidget from "../EditWidget";
+import DeleteWidget from "../DeleteWidget";
+import Row from "../Row";
 
 import searchIcon from "../../../images/search.webp";
 import addIcon from "../../../images/add.webp";
-import editIcon from "../../../images/edit.webp";
-import deleteIcon from "../../../images/delete.webp";
 
 const CommonDash = ({ title }) => {
     const addRef = useRef(null);
+    const editRef = useRef(null);
+    const deleteRef = useRef(null);
 
     const skillsArray = [
         "N°",
@@ -49,6 +52,8 @@ const CommonDash = ({ title }) => {
     return (
         <div className='common-dash'>
             <AddWidget section={title} reference={addRef} />
+            <EditWidget section={title} reference={editRef} />
+            <DeleteWidget reference={deleteRef} />
             <div className='top'>
                 <h2>{title}</h2>
                 <form>
@@ -133,50 +138,24 @@ const CommonDash = ({ title }) => {
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>01</td>
-                        <td>GG</td>
-                        <td>HTML</td>
-                        <td>01</td>
-                        <td>True</td>
-                        <td>
-                            <img src={editIcon} />
-                            <img src={deleteIcon} />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>02</td>
-                        <td>GG</td>
-                        <td>CSS</td>
-                        <td>02</td>
-                        <td>True</td>
-                        <td>
-                            <img src={editIcon} />
-                            <img src={deleteIcon} />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>03</td>
-                        <td>GG</td>
-                        <td>JS</td>
-                        <td>03</td>
-                        <td>True</td>
-                        <td>
-                            <img src={editIcon} />
-                            <img src={deleteIcon} />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>04</td>
-                        <td>GG</td>
-                        <td>React</td>
-                        <td>04</td>
-                        <td>False</td>
-                        <td>
-                            <img src={editIcon} />
-                            <img src={deleteIcon} />
-                        </td>
-                    </tr>
+                    <Row
+                        editable={title === "Messages" ? false : true}
+                        data={["01", "GG", "HTML", "01", "True"]}
+                        editRef={editRef}
+                        deleteRef={deleteRef}
+                    />
+                    <Row
+                        editable={title === "Messages" ? false : true}
+                        data={["01", "GG", "HTML", "01", "True"]}
+                        editRef={editRef}
+                        deleteRef={deleteRef}
+                    />
+                    <Row
+                        editable={title === "Messages" ? false : true}
+                        data={["01", "GG", "HTML", "01", "True"]}
+                        editRef={editRef}
+                        deleteRef={deleteRef}
+                    />
                 </tbody>
             </table>
         </div>

@@ -1,16 +1,16 @@
 import React from "react";
 import { useRef } from "react";
-import "./AddWidget.css";
+import "./EditWidget.css";
 
 import uploadIcon from "../../../images/upload.webp";
 import closeIcon from "../../../images/close.webp";
 import saveIcon from "../../../images/save.webp";
 
-const AddWidget = ({ section, reference }) => {
+const EditWidget = ({ section, reference }) => {
     const inputRef = useRef(null);
 
     return (
-        <div className='add-widget' ref={reference}>
+        <div className='edit-widget' ref={reference}>
             <div className='wrapper'>
                 <img
                     className='close'
@@ -20,7 +20,7 @@ const AddWidget = ({ section, reference }) => {
                         reference.current.style.display = "none";
                     }}
                 />
-                <h2>{`Add ${section.slice(0, section.length - 1)}`}</h2>
+                <h2>{`Edit ${section.slice(0, section.length - 1)}`}</h2>
                 <form>
                     {section.slice(0, section.length - 1).toLowerCase() ===
                     "skill" ? (
@@ -30,7 +30,6 @@ const AddWidget = ({ section, reference }) => {
                             <div className='group'>
                                 <label>Visibility</label>
                                 <select>
-                                    <option></option>
                                     <option>True</option>
                                     <option>False</option>
                                 </select>
@@ -45,7 +44,6 @@ const AddWidget = ({ section, reference }) => {
                             <div className='group'>
                                 <label>Visibility</label>
                                 <select>
-                                    <option></option>
                                     <option>True</option>
                                     <option>False</option>
                                 </select>
@@ -94,4 +92,4 @@ const AddWidget = ({ section, reference }) => {
     );
 };
 
-export default AddWidget;
+export default EditWidget;

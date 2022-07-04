@@ -1,0 +1,58 @@
+tr:not(:first-of-type) {
+    border-top: 1px solid #ddd;
+}
+
+tr:nth-of-type(2n + 1) {
+    background-color: #f6f6f6;
+}
+
+tr td {
+    padding: 8px 15px;
+    text-align: center;
+    font-size: 16px;
+}
+
+tr td:not(:last-of-type) {
+    border-right: 1px solid #ddd;
+}
+
+tr td:last-of-type {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    column-gap: 20px;
+}
+
+tr:hover td img {
+    display: flex;
+}
+
+tr td img {
+    width: 24px;
+    cursor: pointer;
+    display: none;
+    transition: all 0.2s ease-in-out;
+}
+
+tr td img:hover {
+    transform: scale(1.2);
+}
+
+@media (max-width: 575.98px) {
+}
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+}
+
+@media (min-width: 992px) and (max-width: 1199.98px) {
+}
+
+@media (min-width: 1200px) and (max-width: 1399px) {
+}
+
+@media (min-width: 1400px) and (max-width: 1599px) {
+}
