@@ -9,21 +9,27 @@ const adminSchema = new mongoose.Schema(
             unique: true,
             required: true,
         },
+        email: {
+            type: String,
+            unique: true,
+            required: true,
+        },
         password: {
             type: String,
             required: true,
         },
-        tokens: {
-            token: {
-                type: String,
-                required: true,
+        tokens: [
+            {
+                token: {
+                    type: String,
+                },
             },
-        },
+        ],
     },
     { timestamps: true }
 );
 
-adminSchema.methods.generateAuthToken = async () => {
+adminSchema.methods.generateAuthToken = async function () {
     const admin = this;
 
     const token = jwt.sign({ _id: admin._id }, process.env.JWT_SECRET);
@@ -72,6 +78,6 @@ adminSchema.pre("save", async function (next) {
     next();
 });
 
-const admin = new mongoose.Model("Admin", adminSchema);
+const Admin = new mongoose.model("Admin", adminSchema);
 
-module.exports = admin;
+module.exports = Admin;

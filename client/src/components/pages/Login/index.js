@@ -1,7 +1,9 @@
 import React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 import "./Login.css";
+
 import dashboardImg from "../../../images/dashboard.webp";
 import loginImg from "../../../images/login.webp";
 
@@ -31,8 +33,18 @@ const Login = () => {
                     }}
                 />
                 <button
-                    onClick={(e) => {
-                        navigate("../dashboard");
+                    onClick={async (e) => {
+                        e.preventDefault();
+                        if (login.username !== "" && login.password !== "") {
+                            const res = await axios.post("/auth/login", login);
+                            if (res.status === 200) {
+                                localStorage.setItem("token", res.data.token);
+                                navigate("../dashboard");
+                            } else {
+                                console.log("h");
+                                setLogin({ username: "", password: "" });
+                            }
+                        }
                     }}
                 >
                     <img src={loginImg} alt='Login' /> Login
