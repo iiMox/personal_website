@@ -10,7 +10,7 @@ import Row from "../Row";
 import searchIcon from "../../../images/search.webp";
 import addIcon from "../../../images/add.webp";
 
-const CommonDash = ({ title }) => {
+const CommonDash = ({ title, skills }) => {
     const addRef = useRef(null);
     const editRef = useRef(null);
     const deleteRef = useRef(null);
@@ -42,9 +42,10 @@ const CommonDash = ({ title }) => {
     ];
     const messagesArray = [
         "N°",
+        "Name",
         "E-mail",
         "Subject",
-        "Message",
+        "Content",
         "Date",
         "Actions",
     ];
@@ -138,7 +139,27 @@ const CommonDash = ({ title }) => {
                     </tr>
                 </thead>
                 <tbody>
-                    <Row
+                    {title === "Skills"
+                        ? skills.map((skill, index) => {
+                              return (
+                                  <Row
+                                      key={index}
+                                      editable={true}
+                                      data={[
+                                          index + 1,
+                                          skill.icon,
+                                          skill.skill,
+                                          skill.position,
+                                          skill.visibility,
+                                      ]}
+                                      editRef={editRef}
+                                      deleteRef={deleteRef}
+                                  />
+                              );
+                          })
+                        : ""}
+
+                    {/* <Row
                         editable={title === "Messages" ? false : true}
                         data={["01", "GG", "HTML", "01", "True"]}
                         editRef={editRef}
@@ -149,13 +170,7 @@ const CommonDash = ({ title }) => {
                         data={["01", "GG", "HTML", "01", "True"]}
                         editRef={editRef}
                         deleteRef={deleteRef}
-                    />
-                    <Row
-                        editable={title === "Messages" ? false : true}
-                        data={["01", "GG", "HTML", "01", "True"]}
-                        editRef={editRef}
-                        deleteRef={deleteRef}
-                    />
+                    /> */}
                 </tbody>
             </table>
         </div>

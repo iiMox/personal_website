@@ -10,14 +10,23 @@ const serviceSchema = new mongoose.Schema(
             type: String,
             required: true,
         },
-        image: {
-            typr: Buffer,
+        position: {
+            type: Number,
+            min: 1,
+            required: true,
+        },
+        visibility: {
+            type: Boolean,
+            required: true,
+        },
+        icon: {
+            type: Buffer,
             required: true,
         },
     },
     { timestamps: true }
 );
 
-const service = new mongoose.Model("Service", serviceSchema);
+const Service = new mongoose.model("Service", serviceSchema);
 
-module.exports = service;
+module.exports = Service;

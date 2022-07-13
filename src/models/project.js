@@ -6,7 +6,16 @@ const projectSchema = new mongoose.Schema(
             type: String,
             required: true,
         },
-        image: {
+        link: {
+            type: String,
+            required: true,
+        },
+        position: {
+            type: Number,
+            min: 1,
+            required: true,
+        },
+        preview: {
             type: Buffer,
             required: true,
         },
@@ -14,6 +23,6 @@ const projectSchema = new mongoose.Schema(
     { timestamps: true }
 );
 
-const project = new mongoose.Model("Project", projectSchema);
+const Project = new mongoose.model("Project", projectSchema);
 
-module.exports = project;
+module.exports = Project;

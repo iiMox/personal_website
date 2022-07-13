@@ -7,8 +7,22 @@ import deleteIcon from "../../../images/delete.webp";
 const Row = ({ editable, data, editRef, deleteRef }) => {
     return (
         <tr>
-            {data.map((col) => {
-                return <td>{col}</td>;
+            {data.map((col, index) => {
+                return (
+                    <td key={index}>
+                        {typeof col === "object" ? (
+                            <img
+                                src={`data:image/png;base64,${btoa(
+                                    String.fromCharCode(...new Uint8Array(col))
+                                )}`}
+                                alt='Icon'
+                            />
+                        ) : (
+                            String(col).charAt(0).toUpperCase() +
+                            String(col).slice(1)
+                        )}
+                    </td>
+                );
             })}
             <td>
                 {editable ? (

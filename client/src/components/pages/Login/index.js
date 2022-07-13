@@ -36,14 +36,21 @@ const Login = () => {
                     onClick={async (e) => {
                         e.preventDefault();
                         if (login.username !== "" && login.password !== "") {
-                            const res = await axios.post("/auth/login", login);
-                            if (res.status === 200) {
+                            try {
+                                const res = await axios.post(
+                                    "/auth/login",
+                                    login
+                                );
+
                                 localStorage.setItem("token", res.data.token);
+
                                 navigate("../dashboard");
-                            } else {
-                                console.log("h");
-                                setLogin({ username: "", password: "" });
+                            } catch (e) {
+                                if (e.response.status === 404) {
+                                    setLogin({ username: "", password: "" });
+                                }
                             }
+                        } else {
                         }
                     }}
                 >

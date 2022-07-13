@@ -6,12 +6,16 @@ const skillSchema = new mongoose.Schema(
             type: String,
             required: true,
         },
-        level: {
+        position: {
             type: Number,
-            min: 0,
-            max: 100,
+            required: true,
+            min: 1,
         },
-        image: {
+        visibility: {
+            type: Boolean,
+            required: true,
+        },
+        icon: {
             type: Buffer,
             required: true,
         },
@@ -19,6 +23,6 @@ const skillSchema = new mongoose.Schema(
     { timestamps: true }
 );
 
-const skill = new mongoose.Model("Skill", skillSchema);
+const Skill = new mongoose.model("Skill", skillSchema);
 
-module.exports = skill;
+module.exports = Skill;

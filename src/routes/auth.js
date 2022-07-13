@@ -13,7 +13,7 @@ router.post("/register", async (req, res) => {
     if (user) {
         return res
             .status(400)
-            .json({ msg: "Username or email already taken." });
+            .json({ message: "Username or email already taken." });
     }
 
     const newAdmin = new Admin({
@@ -22,7 +22,7 @@ router.post("/register", async (req, res) => {
         password: password,
     });
 
-    newAdmin.save();
+    await newAdmin.save();
     res.status(200).json({ msg: "Success" });
 });
 
@@ -32,12 +32,12 @@ router.post("/login", async (req, res) => {
     const admin = await Admin.findByCredentials(username, password);
 
     if (!admin) {
-        return res.status(400).json({ msg: "Wrong Credentials." });
+        return res.status(404).json({ message: "Wrong Credentials." });
     }
 
     const token = await admin.generateAuthToken();
 
-    res.status(200).json({ token, msg: "Success" });
+    res.status(200).json({ token, message: "Success" });
 });
 
 module.exports = router;
