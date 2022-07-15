@@ -4,18 +4,17 @@ import "./Row.css";
 import editIcon from "../../../images/edit.webp";
 import deleteIcon from "../../../images/delete.webp";
 
-const Row = ({ editable, data, editRef, deleteRef }) => {
+const Row = ({ editable, data, editRef, deleteRef, _id, changeId }) => {
     return (
         <tr>
             {data.map((col, index) => {
                 return (
                     <td key={index}>
-                        {typeof col === "object" ? (
+                        {index === 1 ? (
                             <img
-                                src={`data:image/png;base64,${btoa(
-                                    String.fromCharCode(...new Uint8Array(col))
-                                )}`}
+                                src={col}
                                 alt='Icon'
+                                style={{ display: "block", margin: "0 auto" }}
                             />
                         ) : (
                             String(col).charAt(0).toUpperCase() +
@@ -24,7 +23,7 @@ const Row = ({ editable, data, editRef, deleteRef }) => {
                     </td>
                 );
             })}
-            <td>
+            <td className='actions'>
                 {editable ? (
                     <img
                         src={editIcon}
@@ -41,6 +40,7 @@ const Row = ({ editable, data, editRef, deleteRef }) => {
                     alt='delete'
                     onClick={(e) => {
                         deleteRef.current.style.display = "flex";
+                        changeId(_id);
                     }}
                 />
             </td>

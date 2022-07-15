@@ -21,19 +21,13 @@ const SkillsDash = () => {
                 Authorization: `Bearer ${localStorage.getItem("token")}`,
             },
         });
-        res.data.forEach((dt) => {
-            setSkills([...skills, { ...dt, icon: dt.icon.data }]);
-        });
+        setSkills(res.data);
         setLoading(false);
     };
 
     return (
         <div className='skills-content'>
-            {loading ? (
-                "Loading ..."
-            ) : (
-                <CommonDash title='Skills' skills={skills} />
-            )}
+            <CommonDash title='Skills' skills={skills} skillLoading={loading} />
         </div>
     );
 };

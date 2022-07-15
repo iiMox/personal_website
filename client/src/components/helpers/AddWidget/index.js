@@ -12,34 +12,45 @@ const AddWidget = ({ section, reference }) => {
 
     const [skill, setSkill] = useState({
         skill: "",
-        position: null,
-        visibility: false,
+        position: 0,
+        visibility: "",
     });
 
     const [service, setService] = useState({
         service: "",
         description: "",
-        position: null,
-        visibility: false,
+        position: 0,
+        visibility: "",
     });
 
     const [project, setProject] = useState({
         title: "",
-        position: null,
+        position: 0,
         link: "",
     });
 
-    let image = "";
+    const [image, setImage] = useState();
 
     const submit = async () => {
         try {
+            let imageUrl = "";
+
+            if (image) {
+                const formData = new FormData();
+                formData.append("image", image);
+
+                const imageRes = await axios.post("/image", formData);
+
+                /* imageUrl = imageRes.data; */
+                console.log(imageRes.data);
+            }
             let res;
             if (
                 section.slice(0, section.length - 1).toLowerCase() === "skill"
             ) {
                 res = await axios.post(
                     "/skill",
-                    { ...skill, icon: image },
+                    { ...skill, icon: imageUrl },
                     {
                         headers: {
                             Authorization: `Bearer ${localStorage.getItem(
@@ -48,12 +59,13 @@ const AddWidget = ({ section, reference }) => {
                         },
                     }
                 );
+                setSkill({ skill: "", position: "", visibility: "" });
             } else if (
                 section.slice(0, section.length - 1).toLowerCase() === "service"
             ) {
                 res = await axios.post(
                     "/service",
-                    { ...service, icon: image },
+                    { ...service, icon: imageUrl },
                     {
                         headers: {
                             Authorization: `Bearer ${localStorage.getItem(
@@ -62,10 +74,16 @@ const AddWidget = ({ section, reference }) => {
                         },
                     }
                 );
+                setService({
+                    service: "",
+                    description: "",
+                    position: "",
+                    visibility: "",
+                });
             } else {
                 res = await axios.post(
                     "/project",
-                    { ...skill, preview: image },
+                    { ...project, preview: imageUrl },
                     {
                         headers: {
                             Authorization: `Bearer ${localStorage.getItem(
@@ -74,7 +92,9 @@ const AddWidget = ({ section, reference }) => {
                         },
                     }
                 );
+                setProject({ title: "", position: "", link: "" });
             }
+            setImage(null);
         } catch (e) {}
     };
 
@@ -97,6 +117,7 @@ const AddWidget = ({ section, reference }) => {
                             <input
                                 type='text'
                                 placeholder='Skill'
+                                value={skill.skill}
                                 onChange={(e) => {
                                     setSkill({
                                         ...skill,
@@ -107,6 +128,7 @@ const AddWidget = ({ section, reference }) => {
                             <input
                                 type='text'
                                 placeholder='Position'
+                                value={skill.position}
                                 onChange={(e) => {
                                     setSkill({
                                         ...skill,
@@ -117,6 +139,7 @@ const AddWidget = ({ section, reference }) => {
                             <div className='group'>
                                 <label>Visibility</label>
                                 <select
+                                    value={skill.visibility}
                                     onChange={(e) => {
                                         setSkill({
                                             ...skill,
@@ -124,7 +147,7 @@ const AddWidget = ({ section, reference }) => {
                                         });
                                     }}
                                 >
-                                    <option selected disabled></option>
+                                    <option value='' disabled></option>
                                     <option value='true'>True</option>
                                     <option value='false'>False</option>
                                 </select>
@@ -136,6 +159,7 @@ const AddWidget = ({ section, reference }) => {
                             <input
                                 type='text'
                                 placeholder='Service'
+                                value={service.service}
                                 onChange={(e) => {
                                     setService({
                                         ...service,
@@ -145,6 +169,7 @@ const AddWidget = ({ section, reference }) => {
                             />
                             <textarea
                                 placeholder='Description'
+                                value={service.description}
                                 onChange={(e) => {
                                     setService({
                                         ...service,
@@ -155,6 +180,7 @@ const AddWidget = ({ section, reference }) => {
                             <input
                                 type='text'
                                 placeholder='Position'
+                                value={service.position}
                                 onChange={(e) => {
                                     setService({
                                         ...service,
@@ -165,6 +191,7 @@ const AddWidget = ({ section, reference }) => {
                             <div className='group'>
                                 <label>Visibility</label>
                                 <select
+                                    value={service.visibility}
                                     onChange={(e) => {
                                         setService({
                                             ...service,
@@ -172,7 +199,7 @@ const AddWidget = ({ section, reference }) => {
                                         });
                                     }}
                                 >
-                                    <option disabled></option>
+                                    <option disabled value=''></option>
                                     <option value='true'>True</option>
                                     <option value='false'>False</option>
                                 </select>
@@ -183,6 +210,7 @@ const AddWidget = ({ section, reference }) => {
                             <input
                                 type='text'
                                 placeholder='Project Title'
+                                value={project.title}
                                 onChange={(e) => {
                                     setProject({
                                         ...project,
@@ -193,6 +221,7 @@ const AddWidget = ({ section, reference }) => {
                             <input
                                 type='text'
                                 placeholder='Link'
+                                value={project.link}
                                 onChange={(e) => {
                                     setProject({
                                         ...project,
@@ -202,6 +231,7 @@ const AddWidget = ({ section, reference }) => {
                             />
                             <input
                                 type='text'
+                                value={project.position}
                                 placeholder='Position'
                                 onChange={(e) => {
                                     setProject({
@@ -228,22 +258,7 @@ const AddWidget = ({ section, reference }) => {
                                 ref={inputRef}
                                 accept='.jpeg, .png,.jpg'
                                 onChange={(e) => {
-                                    let file = e.target.files[0];
-
-                                    console.log(file);
-
-                                    if (file) {
-                                        const reader = new FileReader();
-
-                                        reader.onload = (readerEvt) => {
-                                            let binaryString =
-                                                readerEvt.target.result;
-
-                                            image = btoa(binaryString);
-                                        };
-
-                                        reader.readAsBinaryString(file);
-                                    }
+                                    setImage(e.target.files[0]);
                                 }}
                             />
                             <img

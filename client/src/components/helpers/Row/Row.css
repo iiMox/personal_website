@@ -24,18 +24,18 @@ tr td:last-of-type {
     column-gap: 20px;
 }
 
-tr:hover td img {
+tr:hover td.actions img {
     display: flex;
 }
 
-tr td img {
+tr td.actions img {
     width: 24px;
     cursor: pointer;
     display: none;
     transition: all 0.2s ease-in-out;
 }
 
-tr td img:hover {
+tr td.actions img:hover {
     transform: scale(1.2);
 }
 

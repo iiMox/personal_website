@@ -119,6 +119,14 @@
     color: #fff;
 }
 
+.common-dash table tbody .empty {
+    padding: 20px 0;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 500;
+    color: #999;
+}
+
 @media (max-width: 575.98px) {
 }
 
