@@ -16,7 +16,7 @@ const skillSchema = new mongoose.Schema(
             required: true,
         },
         icon: {
-            type: Buffer,
+            type: String,
             required: true,
         },
     },

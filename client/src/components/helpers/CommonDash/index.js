@@ -9,19 +9,8 @@ import Row from "../Row";
 
 import searchIcon from "../../../images/search.webp";
 import addIcon from "../../../images/add.webp";
-import Loading from "../Loading";
 
-const CommonDash = ({
-    title,
-    skills,
-    services,
-    projects,
-    messages,
-    skillLoading,
-    serviceLoading,
-    projectLoading,
-    messageLoading,
-}) => {
+const CommonDash = ({ title, skills, services, projects, messages }) => {
     const addRef = useRef(null);
     const editRef = useRef(null);
     const deleteRef = useRef(null);
@@ -157,9 +146,7 @@ const CommonDash = ({
                 </thead>
                 <tbody>
                     {title === "Skills" ? (
-                        skillLoading ? (
-                            <Loading col='6' />
-                        ) : skills.length === 0 ? (
+                        skills.length === 0 ? (
                             <tr style={{ backgroundColor: "#fff" }}>
                                 <td
                                     className='empty'
@@ -175,6 +162,7 @@ const CommonDash = ({
                                     <Row
                                         key={index}
                                         editable={true}
+                                        type='skill'
                                         _id={skill._id}
                                         data={[
                                             index + 1,
@@ -185,15 +173,12 @@ const CommonDash = ({
                                         ]}
                                         editRef={editRef}
                                         deleteRef={deleteRef}
-                                        changeId={setId}
                                     />
                                 );
                             })
                         )
                     ) : title === "Services" ? (
-                        serviceLoading ? (
-                            <Loading col='7' />
-                        ) : services.length === 0 ? (
+                        services.length === 0 ? (
                             <tr style={{ backgroundColor: "#fff" }}>
                                 <td
                                     className='empty'
@@ -209,6 +194,7 @@ const CommonDash = ({
                                     <Row
                                         key={index}
                                         editable={true}
+                                        type='service'
                                         _id={service._id}
                                         data={[
                                             index + 1,
@@ -220,15 +206,12 @@ const CommonDash = ({
                                         ]}
                                         editRef={editRef}
                                         deleteRef={deleteRef}
-                                        changeId={setId}
                                     />
                                 );
                             })
                         )
                     ) : title === "Projects" ? (
-                        projectLoading ? (
-                            <Loading col='6' />
-                        ) : projects.length === 0 ? (
+                        projects.length === 0 ? (
                             <tr style={{ backgroundColor: "#fff" }}>
                                 <td
                                     className='empty'
@@ -244,6 +227,7 @@ const CommonDash = ({
                                     <Row
                                         key={index}
                                         editable={true}
+                                        type='project'
                                         _id={project._id}
                                         data={[
                                             index + 1,
@@ -254,13 +238,10 @@ const CommonDash = ({
                                         ]}
                                         editRef={editRef}
                                         deleteRef={deleteRef}
-                                        changeId={setId}
                                     />
                                 );
                             })
                         )
-                    ) : messageLoading ? (
-                        <Loading col='7' />
                     ) : messages.length === 0 ? (
                         <tr style={{ backgroundColor: "#fff" }}>
                             <td
@@ -277,6 +258,7 @@ const CommonDash = ({
                                 <Row
                                     key={index}
                                     editable={false}
+                                    type='message'
                                     _id={message._id}
                                     data={[
                                         index + 1,
@@ -287,7 +269,6 @@ const CommonDash = ({
                                     ]}
                                     editRef={editRef}
                                     deleteRef={deleteRef}
-                                    changeId={setId}
                                 />
                             );
                         })

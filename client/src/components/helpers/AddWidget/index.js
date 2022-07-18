@@ -1,6 +1,10 @@
 import React from "react";
-import axios from "axios";
 import { useState, useRef } from "react";
+import { useDispatch } from "react-redux";
+import { uploadImage } from "../../actions/image";
+import { addSkill } from "../../actions/skill";
+import { addService } from "../../actions/service";
+import { addProject } from "../../actions/project";
 import "./AddWidget.css";
 
 import uploadIcon from "../../../images/upload.webp";
@@ -8,6 +12,8 @@ import closeIcon from "../../../images/close.webp";
 import saveIcon from "../../../images/save.webp";
 
 const AddWidget = ({ section, reference }) => {
+    const dispatch = useDispatch();
+
     const inputRef = useRef(null);
 
     const [skill, setSkill] = useState({
@@ -36,65 +42,33 @@ const AddWidget = ({ section, reference }) => {
             let imageUrl = "";
 
             if (image) {
-                const formData = new FormData();
-                formData.append("image", image);
+                imageUrl = await uploadImage(image);
 
-                const imageRes = await axios.post("/image", formData);
+                if (
+                    section.slice(0, section.length - 1).toLowerCase() ===
+                    "skill"
+                ) {
+                    dispatch(addSkill({ ...skill, icon: imageUrl }));
 
-                /* imageUrl = imageRes.data; */
-                console.log(imageRes.data);
+                    setSkill({ skill: "", position: "", visibility: "" });
+                } else if (
+                    section.slice(0, section.length - 1).toLowerCase() ===
+                    "service"
+                ) {
+                    dispatch(addService({ ...service, icon: imageUrl }));
+
+                    setService({
+                        service: "",
+                        description: "",
+                        position: "",
+                        visibility: "",
+                    });
+                } else {
+                    dispatch(addProject({ ...project, preview: imageUrl }));
+                    setProject({ title: "", position: "", link: "" });
+                }
+                setImage(null);
             }
-            let res;
-            if (
-                section.slice(0, section.length - 1).toLowerCase() === "skill"
-            ) {
-                res = await axios.post(
-                    "/skill",
-                    { ...skill, icon: imageUrl },
-                    {
-                        headers: {
-                            Authorization: `Bearer ${localStorage.getItem(
-                                "token"
-                            )}`,
-                        },
-                    }
-                );
-                setSkill({ skill: "", position: "", visibility: "" });
-            } else if (
-                section.slice(0, section.length - 1).toLowerCase() === "service"
-            ) {
-                res = await axios.post(
-                    "/service",
-                    { ...service, icon: imageUrl },
-                    {
-                        headers: {
-                            Authorization: `Bearer ${localStorage.getItem(
-                                "token"
-                            )}`,
-                        },
-                    }
-                );
-                setService({
-                    service: "",
-                    description: "",
-                    position: "",
-                    visibility: "",
-                });
-            } else {
-                res = await axios.post(
-                    "/project",
-                    { ...project, preview: imageUrl },
-                    {
-                        headers: {
-                            Authorization: `Bearer ${localStorage.getItem(
-                                "token"
-                            )}`,
-                        },
-                    }
-                );
-                setProject({ title: "", position: "", link: "" });
-            }
-            setImage(null);
         } catch (e) {}
     };
 

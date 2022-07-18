@@ -16,7 +16,7 @@ router.post("/", auth, async (req, res) => {
 
     try {
         await newService.save();
-        res.status(201).send();
+        res.status(201).send(newService);
     } catch (e) {
         res.status(400).send();
     }
@@ -24,7 +24,7 @@ router.post("/", auth, async (req, res) => {
 
 router.get("/", auth, async (req, res) => {
     try {
-        const services = await Service.findMany();
+        const services = await Service.find();
 
         res.send(services);
     } catch (e) {

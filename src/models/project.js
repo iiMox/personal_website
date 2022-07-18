@@ -16,7 +16,7 @@ const projectSchema = new mongoose.Schema(
             required: true,
         },
         preview: {
-            type: Buffer,
+            type: String,
             required: true,
         },
     },

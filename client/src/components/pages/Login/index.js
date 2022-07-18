@@ -1,16 +1,20 @@
 import React from "react";
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import axios from "axios";
+import { useState, useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { loginAdmin, logout } from "../../actions/auth";
 import "./Login.css";
 
 import dashboardImg from "../../../images/dashboard.webp";
 import loginImg from "../../../images/login.webp";
 
 const Login = () => {
-    const navigate = useNavigate();
-
     const [login, setLogin] = useState({ username: "", password: "" });
+
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(logout());
+    }, [dispatch]);
 
     return (
         <div className='login' style={{ height: window.innerHeight }}>
@@ -36,20 +40,9 @@ const Login = () => {
                     onClick={async (e) => {
                         e.preventDefault();
                         if (login.username !== "" && login.password !== "") {
-                            try {
-                                const res = await axios.post(
-                                    "/auth/login",
-                                    login
-                                );
-
-                                localStorage.setItem("token", res.data.token);
-
-                                navigate("../dashboard");
-                            } catch (e) {
-                                if (e.response.status === 404) {
-                                    setLogin({ username: "", password: "" });
-                                }
-                            }
+                            dispatch(
+                                loginAdmin(login.username, login.password)
+                            );
                         } else {
                         }
                     }}

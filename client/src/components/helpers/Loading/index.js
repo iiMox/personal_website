@@ -1,22 +1,16 @@
 import React from "react";
 import "./Loading.css";
 
-const Loading = ({ col }) => {
+const Loading = () => {
     return (
-        <tr style={{ backgroundColor: "#fff" }}>
-            <td
-                className='loading'
-                style={{ display: "revert", padding: "0" }}
-                colSpan={col}
-            >
-                <div className='box'>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                </div>
-            </td>
-        </tr>
+        <div className='loading'>
+            <div className='box'>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
     );
 };
 

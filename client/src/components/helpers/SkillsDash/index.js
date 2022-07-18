@@ -1,33 +1,14 @@
 import React from "react";
-import axios from "axios";
-import { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
 import "./SkillsDash.css";
 
 import CommonDash from "../CommonDash";
 
 const SkillsDash = () => {
-    const [skills, setSkills] = useState([]);
-    const [loading, setLoading] = useState(true);
-
-    useEffect(() => {
-        if (loading) {
-            getSkills();
-        }
-    });
-
-    const getSkills = async () => {
-        const res = await axios.get("/skill", {
-            headers: {
-                Authorization: `Bearer ${localStorage.getItem("token")}`,
-            },
-        });
-        setSkills(res.data);
-        setLoading(false);
-    };
-
+    const skills = useSelector((state) => state.skills.skills);
     return (
         <div className='skills-content'>
-            <CommonDash title='Skills' skills={skills} skillLoading={loading} />
+            <CommonDash title='Skills' skills={skills} />
         </div>
     );
 };

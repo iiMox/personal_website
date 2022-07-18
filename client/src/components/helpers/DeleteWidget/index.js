@@ -1,9 +1,11 @@
 import React from "react";
 import axios from "axios";
+import { deleteImage } from "../../actions/image";
 import "./DeleteWidget.css";
 
-const DeleteWidget = ({ reference, endPoint, _id }) => {
+const DeleteWidget = ({ reference, endPoint, _id, image }) => {
     const deleteOperation = async () => {
+        deleteImage(image);
         const res = await axios.delete(
             `/${endPoint.slice(0, endPoint.length - 1)}/${_id}`,
             {

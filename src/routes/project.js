@@ -24,7 +24,7 @@ router.post("/", auth, async (req, res) => {
 
 router.get("/", auth, async (req, res) => {
     try {
-        const projects = await Project.findMany();
+        const projects = await Project.find();
 
         res.status(200).send(projects);
     } catch (e) {
