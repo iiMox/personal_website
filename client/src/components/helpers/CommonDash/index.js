@@ -1,5 +1,5 @@
 import React from "react";
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import moment from "moment";
 import "./CommonDash.css";
 
@@ -51,13 +51,11 @@ const CommonDash = ({ title, skills, services, projects, messages }) => {
         "Actions",
     ];
 
-    const [_id, setId] = useState();
-
     return (
         <div className='common-dash'>
             <AddWidget section={title} reference={addRef} />
             <EditWidget section={title} reference={editRef} />
-            <DeleteWidget reference={deleteRef} endPoint={title} _id={_id} />
+            <DeleteWidget reference={deleteRef} />
             <div className='top'>
                 <h2>{title}</h2>
                 <form>
