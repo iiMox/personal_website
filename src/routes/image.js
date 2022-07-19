@@ -33,8 +33,18 @@ router.post("/", upload.single("image"), async (req, res) => {
     }
 });
 
-router.delete("/", async (req, res) => {
-    res.status(200).send();
+router.delete("/:publicId", async (req, res) => {
+    try {
+        cloudinary.uploader.destroy(
+            `PersonalWebsite/${req.params.publicId}`,
+            async (error, result) => {
+                if (error) {
+                    return res.status(400).send(error);
+                }
+                res.status(200).send();
+            }
+        );
+    } catch (e) {}
 });
 
 module.exports = router;

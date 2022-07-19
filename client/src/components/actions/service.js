@@ -9,6 +9,8 @@ import {
     DELETE_SERVICE,
 } from "../utils/types";
 
+import { deleteImage } from "./image";
+
 export const getAllServices = () => async (dispatch) => {
     try {
         const res = await axios("/service", token);
@@ -24,6 +26,20 @@ export const addService = (service) => async (dispatch) => {
     } catch (e) {}
 };
 
-export const updateService = () => (dispatch) => {};
+export const updateService = (_id, service) => async (dispatch) => {
+    try {
+        const res = await axios.put(`/service/${_id}`, service, token);
 
-export const deleteService = () => (dispatch) => {};
+        dispatch({ type: UPDATE_SERVICE, payload: res.data });
+    } catch (e) {}
+};
+
+export const deleteService = (_id, url) => async (dispatch) => {
+    try {
+        await deleteImage(url);
+
+        await axios.delete(`/service/${_id}`, token);
+
+        dispatch({ type: DELETE_SERVICE, payload: _id });
+    } catch (e) {}
+};

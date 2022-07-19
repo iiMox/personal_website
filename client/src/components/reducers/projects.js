@@ -19,7 +19,19 @@ export default function (state = initialState, action) {
         case ADD_PROJECT:
             return { ...state, projects: [...state.projects, payload] };
         case UPDATE_PROJECT:
+            return {
+                ...state,
+                projects: state.projects.map((project) =>
+                    project._id === payload._id ? payload : project
+                ),
+            };
         case DELETE_PROJECT:
+            return {
+                ...state,
+                projects: state.projects.filter((project) => {
+                    return project._id !== payload;
+                }),
+            };
         default:
             return state;
     }

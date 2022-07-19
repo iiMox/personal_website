@@ -2,12 +2,7 @@ import axios from "axios";
 
 import { token } from "../utils/token";
 
-import {
-    GET_MESSAGES,
-    ADD_MESSAGE,
-    UPDATE_MESSAGE,
-    DELETE_MESSAGE,
-} from "../utils/types";
+import { GET_MESSAGES, DELETE_MESSAGE } from "../utils/types";
 
 export const getAllMessages = () => async (dispatch) => {
     try {
@@ -17,17 +12,16 @@ export const getAllMessages = () => async (dispatch) => {
     } catch (e) {}
 };
 
-export const addMessages = () => async (dispatch) => {
+export const addMessage = (message) => async () => {
     try {
+        await axios.post("/message", message);
     } catch (e) {}
 };
 
-export const updateMessages = () => async (dispatch) => {
+export const deleteMessage = (_id) => async (dispatch) => {
     try {
-    } catch (e) {}
-};
+        await axios.delete(`message/${_id}`, token);
 
-export const deleteMessages = () => async (dispatch) => {
-    try {
+        dispatch({ type: DELETE_MESSAGE, payload: _id });
     } catch (e) {}
 };

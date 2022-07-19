@@ -67,7 +67,8 @@ const AddWidget = ({ section, reference }) => {
                     dispatch(addProject({ ...project, preview: imageUrl }));
                     setProject({ title: "", position: "", link: "" });
                 }
-                setImage(null);
+                setImage(undefined);
+                reference.current.style.display = "none";
             }
         } catch (e) {}
     };

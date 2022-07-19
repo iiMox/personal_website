@@ -18,6 +18,20 @@ export default function (state = initialState, action) {
             return { ...state, skills: [...payload] };
         case ADD_SKILL:
             return { ...state, skills: [...state.skills, payload] };
+        case UPDATE_SKILL:
+            return {
+                ...state,
+                skills: state.skills.map((skill) =>
+                    skill._id === payload._id ? payload : skill
+                ),
+            };
+        case DELETE_SKILL:
+            return {
+                ...state,
+                skills: state.skills.filter((skill) => {
+                    return skill._id !== payload;
+                }),
+            };
         default:
             return state;
     }

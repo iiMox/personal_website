@@ -32,7 +32,7 @@ router.get("/", auth, async (req, res) => {
     }
 });
 
-router.post("/:id", auth, async (req, res) => {
+router.put("/:id", auth, async (req, res) => {
     const _id = req.params.id;
 
     const updates = Object.keys(req.body);

@@ -1,5 +1,6 @@
 import React from "react";
 import { useRef, useState } from "react";
+import moment from "moment";
 import "./CommonDash.css";
 
 import AddWidget from "../AddWidget";
@@ -264,8 +265,11 @@ const CommonDash = ({ title, skills, services, projects, messages }) => {
                                         index + 1,
                                         message.sender,
                                         message.email,
+                                        message.subject,
                                         message.content,
-                                        message.date,
+                                        moment(message.createdAt).format(
+                                            "MM - DD - YYYY"
+                                        ),
                                     ]}
                                     editRef={editRef}
                                     deleteRef={deleteRef}

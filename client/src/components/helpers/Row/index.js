@@ -54,7 +54,7 @@ const Row = ({ editable, data, editRef, deleteRef, _id, type }) => {
             {data.map((col, index) => {
                 return (
                     <td key={index}>
-                        {index === 1 ? (
+                        {index === 1 && type !== "message" ? (
                             <img
                                 src={col}
                                 alt='Icon'

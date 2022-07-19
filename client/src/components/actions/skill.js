@@ -9,6 +9,8 @@ import {
     DELETE_SKILL,
 } from "../utils/types";
 
+import { deleteImage } from "./image";
+
 export const getAllSkills = () => async (dispatch) => {
     try {
         const res = await axios.get("/skill", token);
@@ -25,6 +27,20 @@ export const addSkill = (skill) => async (dispatch) => {
     } catch (e) {}
 };
 
-export const updateSkill = () => (dispatch) => {};
+export const updateSkill = (_id, skill) => async (dispatch) => {
+    try {
+        const res = await axios.put(`/skill/${_id}`, skill, token);
 
-export const deleteSkill = () => (dispatch) => {};
+        dispatch({ type: UPDATE_SKILL, payload: res.data });
+    } catch (e) {}
+};
+
+export const deleteSkill = (_id, url) => async (dispatch) => {
+    try {
+        await deleteImage(url);
+
+        await axios.delete(`/skill/${_id}`, token);
+
+        dispatch({ type: DELETE_SKILL, payload: _id });
+    } catch (e) {}
+};

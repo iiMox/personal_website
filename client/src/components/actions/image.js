@@ -13,14 +13,12 @@ export const uploadImage = async (image) => {
 };
 
 export const deleteImage = async (url) => {
-    const publicId = url
-        .slice(url.indexOf("."), url.length - 1)
-        .slice(url.lastIndexOf("/", url.length - 1));
     try {
-        const res = await axios.delete("/image", publicId);
+        const publicId = url.slice(
+            url.lastIndexOf("/") + 1,
+            url.lastIndexOf(".")
+        );
 
-        console.log(publicId);
-
-        return publicId;
+        await axios.delete(`/image/${publicId}`);
     } catch (e) {}
 };

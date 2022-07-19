@@ -19,6 +19,12 @@ export default function (state = initialState, action) {
         case ADD_MESSAGE:
         case UPDATE_MESSAGE:
         case DELETE_MESSAGE:
+            return {
+                ...state,
+                messages: state.messages.filter((message) => {
+                    return message._id !== payload;
+                }),
+            };
         default:
             return state;
     }

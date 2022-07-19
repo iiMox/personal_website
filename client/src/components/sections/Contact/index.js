@@ -1,13 +1,19 @@
 import React from "react";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { addMessage } from "../../actions/message";
 import "./Contact.css";
+
 import sendIcon from "../../../images/send.webp";
 
 const Contact = () => {
+    const dispatch = useDispatch();
+
     const [mail, setMail] = useState({
-        subject: "",
+        sender: "",
         email: "",
-        message: "",
+        subject: "",
+        content: "",
     });
 
     return (
@@ -18,10 +24,10 @@ const Contact = () => {
                 <form>
                     <input
                         type='text'
-                        placeholder='Subject'
-                        value={mail.subject}
+                        placeholder='Full name'
+                        value={mail.sender}
                         onChange={(e) =>
-                            setMail({ ...mail, subject: e.target.value })
+                            setMail({ ...mail, sender: e.target.value })
                         }
                     />
                     <input
@@ -32,14 +38,34 @@ const Contact = () => {
                             setMail({ ...mail, email: e.target.value })
                         }
                     />
+                    <input
+                        type='text'
+                        placeholder='Subject'
+                        value={mail.subject}
+                        onChange={(e) =>
+                            setMail({ ...mail, subject: e.target.value })
+                        }
+                    />
+
                     <textarea
                         placeholder='Message'
-                        value={mail.message}
+                        value={mail.content}
                         onChange={(e) =>
-                            setMail({ ...mail, message: e.target.value })
+                            setMail({ ...mail, content: e.target.value })
                         }
                     ></textarea>
-                    <button>
+                    <button
+                        onClick={(e) => {
+                            e.preventDefault();
+                            dispatch(addMessage(mail));
+                            setMail({
+                                sender: "",
+                                email: "",
+                                subject: "",
+                                content: "",
+                            });
+                        }}
+                    >
                         <img src={sendIcon} alt='Send' />
                         Forward
                     </button>
