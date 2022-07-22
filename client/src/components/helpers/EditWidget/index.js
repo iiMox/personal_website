@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useRef, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { uploadImage } from "../../actions/image";
+import { uploadImage, deleteImage } from "../../actions/image";
 import { updateSkill } from "../../actions/skill";
 import { updateService } from "../../actions/service";
 import { updateProject } from "../../actions/project";
@@ -69,6 +69,7 @@ const EditWidget = ({ section, reference }) => {
         let imgUrl = "";
 
         if (image !== undefined) {
+            await deleteImage(row[row.type !== "project" ? "icon" : "preview"]);
             imgUrl = await uploadImage(image);
         }
 
@@ -77,7 +78,6 @@ const EditWidget = ({ section, reference }) => {
                 JSON.stringify(origin) !== JSON.stringify(skill) ||
                 image !== undefined
             ) {
-                console.log("hi");
                 dispatch(
                     updateSkill(row._id, {
                         ...skill,
@@ -269,7 +269,7 @@ const EditWidget = ({ section, reference }) => {
                                 type='file'
                                 style={{ display: "none" }}
                                 ref={inputRef}
-                                accept='.jpeg, .png,.jpg'
+                                accept='.jpeg, .png, .jpg, .webp'
                                 onChange={(e) => {
                                     setImage(e.target.files[0]);
                                 }}

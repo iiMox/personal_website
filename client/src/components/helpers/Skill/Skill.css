@@ -1,94 +1,28 @@
 .skill-box {
     padding: 10px 0;
-    position: relative;
     color: #777;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
-    margin-bottom: 10px;
+    row-gap: 10px;
+    flex: 1 0 25%;
+    transition: transform 0.3s ease-in-out;
 }
 
-.skill-box .skill-title {
-    width: 15%;
-    text-align: center;
-    margin-right: 5%;
-}
-
-.skill-box .skill-title .fab {
-    font-size: 30px;
-}
-
-.skill-box .skill-title h5 {
+.skill-box h5 {
     font-size: 16px;
     font-weight: bold;
 }
 
-.skill-box .progress {
-    width: 75%;
-    height: 20px;
-    position: relative;
-    background-color: #fff;
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
-    border: 1px solid #af4eff;
-    border-radius: 10px;
-}
-
-.skill-box .progress::after {
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    background: linear-gradient(to right, #af4eff, #2e23bd);
-    content: "";
-    z-index: -1;
-    border-radius: 10px;
-}
-
-.skill-box .progress span {
-    height: 20px;
-    background-image: linear-gradient(to right, #af4eff, #2e23bd);
-    border-radius: 10px;
-}
-
 @media (min-width: 576px) and (max-width: 767px) {
-    .skill-box .skill-title {
-        width: 25%;
-    }
-
-    .skill-box .skill-title h5 {
+    .skill-box h5 {
         font-size: 13px;
-    }
-
-    .skill-box .progress {
-        width: 65%;
-        height: 15px;
-    }
-
-    .skill-box .progress span {
-        height: 15px;
     }
 }
 
 @media (min-width: 768px) and (max-width: 991px) {
-    .skill-box .skill-title {
-        width: 20%;
-    }
-
-    .skill-box .skill-title h5 {
+    .skill-box h5 {
         font-size: 15px;
-    }
-
-    .skill-box .progress {
-        width: 65%;
-        height: 17px;
-    }
-
-    .skill-box .progress span {
-        height: 17px;
     }
 }
 
@@ -96,4 +30,4 @@
 }
 
 @media (min-width: 1200px) {
-} ;
+}

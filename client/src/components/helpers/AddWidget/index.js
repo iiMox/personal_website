@@ -231,7 +231,7 @@ const AddWidget = ({ section, reference }) => {
                                 type='file'
                                 style={{ display: "none" }}
                                 ref={inputRef}
-                                accept='.jpeg, .png,.jpg'
+                                accept='.jpeg, .png, .jpg, .webp'
                                 onChange={(e) => {
                                     setImage(e.target.files[0]);
                                 }}

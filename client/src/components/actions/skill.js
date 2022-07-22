@@ -13,7 +13,7 @@ import { deleteImage } from "./image";
 
 export const getAllSkills = () => async (dispatch) => {
     try {
-        const res = await axios.get("/skill", token);
+        const res = await axios.get("/skill");
 
         dispatch({ type: GET_SKILLS, payload: res.data });
     } catch (e) {}

@@ -6,7 +6,7 @@ import "./Row.css";
 import editIcon from "../../../images/edit.webp";
 import deleteIcon from "../../../images/delete.webp";
 
-const Row = ({ editable, data, editRef, deleteRef, _id, type }) => {
+const Row = ({ editable, data, editRef, deleteRef, _id, type, previewRef }) => {
     const dispatch = useDispatch();
 
     const setCurrent = () => {
@@ -56,9 +56,18 @@ const Row = ({ editable, data, editRef, deleteRef, _id, type }) => {
                     <td key={index}>
                         {index === 1 && type !== "message" ? (
                             <img
+                                className='icon'
                                 src={col}
                                 alt='Icon'
-                                style={{ display: "block", margin: "0 auto" }}
+                                style={{
+                                    display: "block",
+                                    margin: "0 auto",
+                                    cursor: "pointer",
+                                }}
+                                onClick={(e) => {
+                                    setCurrent();
+                                    previewRef.current.style.display = "flex";
+                                }}
                             />
                         ) : (
                             String(col).charAt(0).toUpperCase() +

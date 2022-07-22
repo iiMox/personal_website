@@ -12,6 +12,10 @@ tr td {
     font-size: 16px;
 }
 
+tr td .icon {
+    max-width: 25%;
+}
+
 tr td:not(:last-of-type) {
     border-right: 1px solid #ddd;
 }

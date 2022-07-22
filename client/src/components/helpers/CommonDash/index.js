@@ -7,6 +7,7 @@ import AddWidget from "../AddWidget";
 import EditWidget from "../EditWidget";
 import DeleteWidget from "../DeleteWidget";
 import Row from "../Row";
+import ImagePreview from "../ImagePreview";
 
 import searchIcon from "../../../images/search.webp";
 import addIcon from "../../../images/add.webp";
@@ -15,6 +16,7 @@ const CommonDash = ({ title, skills, services, projects, messages }) => {
     const addRef = useRef(null);
     const editRef = useRef(null);
     const deleteRef = useRef(null);
+    const imagePreview = useRef(null);
 
     const skillsArray = [
         "N°",
@@ -56,6 +58,7 @@ const CommonDash = ({ title, skills, services, projects, messages }) => {
             <AddWidget section={title} reference={addRef} />
             <EditWidget section={title} reference={editRef} />
             <DeleteWidget reference={deleteRef} />
+            <ImagePreview reference={imagePreview} />
             <div className='top'>
                 <h2>{title}</h2>
                 <form>
@@ -172,6 +175,7 @@ const CommonDash = ({ title, skills, services, projects, messages }) => {
                                         ]}
                                         editRef={editRef}
                                         deleteRef={deleteRef}
+                                        previewRef={imagePreview}
                                     />
                                 );
                             })
@@ -205,6 +209,7 @@ const CommonDash = ({ title, skills, services, projects, messages }) => {
                                         ]}
                                         editRef={editRef}
                                         deleteRef={deleteRef}
+                                        previewRef={imagePreview}
                                     />
                                 );
                             })
@@ -237,6 +242,7 @@ const CommonDash = ({ title, skills, services, projects, messages }) => {
                                         ]}
                                         editRef={editRef}
                                         deleteRef={deleteRef}
+                                        previewRef={imagePreview}
                                     />
                                 );
                             })
@@ -269,7 +275,6 @@ const CommonDash = ({ title, skills, services, projects, messages }) => {
                                             "MM - DD - YYYY"
                                         ),
                                     ]}
-                                    editRef={editRef}
                                     deleteRef={deleteRef}
                                 />
                             );

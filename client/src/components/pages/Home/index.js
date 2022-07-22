@@ -1,5 +1,9 @@
 import React from "react";
+import { useState, useEffect } from "react";
+import axios from "axios";
+
 import "./Home.css";
+import Loading from "../../helpers/Loading";
 import Navbar from "../../helpers/Navbar";
 import Slider from "../../helpers/Slider";
 import About from "../../sections/About";
@@ -9,13 +13,45 @@ import Contact from "../../sections/Contact";
 import Footer from "../../helpers/Footer";
 
 const Home = () => {
-    return (
+    const [loading, setLoading] = useState(true);
+
+    const [skills, setSkills] = useState([]);
+
+    const [services, setServices] = useState([]);
+
+    const [projects, setProjects] = useState([]);
+
+    const fetchData = async () => {
+        try {
+            const resSkills = await axios.get("/skill");
+
+            setSkills([...resSkills.data]);
+
+            const resService = await axios.get("/service");
+
+            setServices([...resService.data]);
+
+            const resProjects = await axios.get("/project");
+
+            setProjects([...resProjects.data]);
+
+            setLoading(false);
+        } catch (e) {}
+    };
+
+    useEffect(() => {
+        fetchData();
+    }, [loading]);
+
+    return loading ? (
+        <Loading />
+    ) : (
         <div className='home'>
             <Navbar />
             <Slider />
             <About />
-            <Services />
-            <Projects />
+            <Services skills={skills} services={services} />
+            <Projects projects={projects} />
             <Contact />
             <Footer />
         </div>

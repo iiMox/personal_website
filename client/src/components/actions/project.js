@@ -13,7 +13,7 @@ import { deleteImage } from "./image";
 
 export const getAllProjects = () => async (dispatch) => {
     try {
-        const res = await axios.get("/project", token);
+        const res = await axios.get("/project");
 
         dispatch({ type: GET_PROJECTS, payload: res.data });
     } catch (e) {}

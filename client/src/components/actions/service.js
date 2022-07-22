@@ -13,7 +13,7 @@ import { deleteImage } from "./image";
 
 export const getAllServices = () => async (dispatch) => {
     try {
-        const res = await axios("/service", token);
+        const res = await axios("/service");
         dispatch({ type: GET_SERVICES, payload: res.data });
     } catch (e) {}
 };

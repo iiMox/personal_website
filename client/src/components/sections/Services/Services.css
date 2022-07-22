@@ -30,51 +30,70 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    column-gap: 16px;
 }
 
 .services .skills-box {
     padding-left: 0;
-    position: relative;
     flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 20px 0;
 }
 
-.services .skills-box::after {
-    content: "";
-    position: absolute;
-    height: 50%;
-    width: 4px;
-    border-radius: 5px;
-    background-image: linear-gradient(to bottom, #af4eff, #2e23bd);
-    top: 25%;
-    right: -2px;
+.services .skills-box .carousel {
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    overflow: hidden;
 }
 
 .services .services-box {
     padding-right: 0;
-    margin-left: 15px;
     flex: 1;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
+    position: relative;
+}
+
+.services .services-box::before {
+    content: "";
+    position: absolute;
+    height: 50%;
+    width: 4px;
+    border-radius: 5px;
+    background-image: linear-gradient(to bottom, #af4eff, #2e23bd);
+    top: 50%;
+    transform: translateY(-50%);
+    left: -10px;
 }
 
 @media (max-width: 575px) {
     .services .holder-box {
         flex-direction: column;
-    }
-    .services .skills-box {
-        width: 100%;
-        padding-bottom: 20px;
-        margin-bottom: 20px;
+        row-gap: 20px;
     }
 
-    .services .skills-box::after {
+    .services .skills-box {
+        width: 100%;
+    }
+
+    .services .services-box {
+        padding-top: 20px;
+    }
+
+    .services .services-box::before {
         height: 4px;
-        width: 50%;
-        top: 100%;
-        right: 25%;
+        width: 40%;
+        top: 0%;
+        left: 50%;
+        transform: translateX(-50%);
     }
 }
 
@@ -88,4 +107,4 @@
 }
 
 @media (min-width: 1200px) {
-} ;
+}
