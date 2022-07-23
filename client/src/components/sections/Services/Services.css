@@ -41,6 +41,7 @@
     justify-content: center;
     position: relative;
     padding: 20px 0;
+    align-self: stretch;
 }
 
 .services .skills-box .carousel {
@@ -48,7 +49,9 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+    align-self: stretch;
     overflow: hidden;
+    position: relative;
 }
 
 .services .services-box {

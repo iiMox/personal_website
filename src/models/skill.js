@@ -10,6 +10,7 @@ const skillSchema = new mongoose.Schema(
             type: Number,
             required: true,
             min: 1,
+            unique: true,
         },
         visibility: {
             type: Boolean,

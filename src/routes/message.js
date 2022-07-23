@@ -23,7 +23,7 @@ router.post("", async (req, res) => {
 
 router.get("", auth, async (req, res) => {
     try {
-        const messages = await Message.find();
+        const messages = await Message.find().sort({ createdAt: "desc" });
 
         res.status(200).send(messages);
     } catch (e) {

@@ -3,32 +3,38 @@ import { useEffect, useState } from "react";
 import "./Skill.css";
 
 const Skill = ({ skill, icon, order, maxOrder }) => {
-    const [orderValue, setOrderValue] = useState(maxOrder);
-    const [transform, setTransform] = useState(0);
-    const [opacity, setOpacity] = useState(1);
+    const [orderValue, setOrderValue] = useState(order + 1);
 
     useEffect(() => {
-        setTimeout(() => {
-            orderValue > 1
+        const swap = setInterval(() => {
+            orderValue > 0
                 ? setOrderValue(orderValue - 1)
-                : setOrderValue(orderValue + maxOrder - 1);
-            if (maxOrder === order - 1 + orderValue) {
-                setOpacity(0);
-                setTransform((maxOrder - order) * 100);
-            } else {
-                setOpacity(1);
-                setTransform(transform - 100);
-            }
+                : setOrderValue(maxOrder);
         }, 3000);
-    });
+
+        document.addEventListener("visibilitychange", () => {
+            setOrderValue(orderValue);
+        });
+        return () => {
+            clearInterval(swap);
+        };
+    }, [orderValue, maxOrder, order]);
 
     return (
         <div
             className='skill-box'
             data-order={orderValue}
             style={{
-                transform: `translateX(${transform}%)`,
-                opacity: opacity,
+                left: `${
+                    orderValue === 0
+                        ? -25
+                        : orderValue === maxOrder
+                        ? maxOrder * 25
+                        : (orderValue - 1) * 25
+                }%`,
+                transition: `left ${
+                    orderValue === maxOrder ? 0 : 0.3
+                }s ease-in-out`,
             }}
         >
             <img src={icon} alt={skill} />

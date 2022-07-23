@@ -24,7 +24,7 @@ router.post("/", auth, async (req, res) => {
 
 router.get("/", async (req, res) => {
     try {
-        const services = await Service.find();
+        const services = await Service.find().sort({ position: "asc" });
 
         res.send(services);
     } catch (e) {

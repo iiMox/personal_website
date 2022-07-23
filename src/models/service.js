@@ -14,6 +14,7 @@ const serviceSchema = new mongoose.Schema(
             type: Number,
             min: 1,
             required: true,
+            unique: true,
         },
         visibility: {
             type: Boolean,

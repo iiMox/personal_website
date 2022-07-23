@@ -23,7 +23,7 @@ router.post("", auth, async (req, res) => {
 
 router.get("", async (req, res) => {
     try {
-        const skills = await Skill.find();
+        const skills = await Skill.find().sort({ position: "asc" });
 
         res.status(200).send(skills);
     } catch (e) {

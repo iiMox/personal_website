@@ -24,7 +24,7 @@ router.post("/", auth, async (req, res) => {
 
 router.get("/", async (req, res) => {
     try {
-        const projects = await Project.find();
+        const projects = await Project.find().sort({ position: "asc" });
 
         res.status(200).send(projects);
     } catch (e) {
