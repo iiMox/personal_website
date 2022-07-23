@@ -2,6 +2,7 @@ import React from "react";
 import "./Footer.css";
 import twitterImg from "../../../images/twitter.webp";
 import linkedinImg from "../../../images/linkedin.webp";
+import githubImg from "../../../images/github.webp";
 import fiverrImg from "../../../images/fiverr.webp";
 import upworkImg from "../../../images/upwork.webp";
 import arrowIcon from "../../../images/arrow.webp";
@@ -28,6 +29,15 @@ const Footer = () => {
                                 rel='noreferrer'
                             >
                                 <img src={linkedinImg} alt='Twitter' />
+                            </a>
+                        </li>
+                        <li>
+                            <a
+                                href='https://github.com/iiMox'
+                                target='_blank'
+                                rel='noreferrer'
+                            >
+                                <img src={githubImg} alt='Github' />
                             </a>
                         </li>
                         <li>
