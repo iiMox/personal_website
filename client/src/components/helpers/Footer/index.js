@@ -1,5 +1,8 @@
 import React from "react";
+import moment from "moment";
+
 import "./Footer.css";
+
 import twitterImg from "../../../images/twitter.webp";
 import linkedinImg from "../../../images/linkedin.webp";
 import githubImg from "../../../images/github.webp";
@@ -61,7 +64,7 @@ const Footer = () => {
                     </ul>
                 </div>
                 <div className='copyright'>
-                    NASSIM YAICI <span>&copy; 2021</span>
+                    NASSIM YAICI <span>&copy; {moment().year()}</span>
                 </div>
             </div>
             <div
