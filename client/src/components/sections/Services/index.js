@@ -1,11 +1,21 @@
 import React from "react";
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
+import { useDispatch } from "react-redux";
+import { setCarouselVisibility } from "../../actions/carousel";
+import CarouselVisibility from "../../utils/carouselVisibility";
+
 import Service from "../../helpers/Service";
 import Skill from "../../helpers/Skill";
 import "./Services.css";
 
 const Services = ({ skills, services }) => {
-    const skillsRef = useRef();
+    const carouselRef = useRef();
+
+    const dispatch = useDispatch();
+
+    dispatch(setCarouselVisibility(CarouselVisibility(carouselRef, "0px")));
+
+    useEffect(() => {}, []);
 
     return (
         <div className='services' id='services'>
@@ -13,7 +23,7 @@ const Services = ({ skills, services }) => {
                 <h2>SERVICES</h2>
                 <div className='holder-box'>
                     <div className='skills-box'>
-                        <div className='carousel' ref={skillsRef}>
+                        <div className='carousel' ref={carouselRef}>
                             {skills.length !== 0
                                 ? skills.map((skill, index) => {
                                       return (

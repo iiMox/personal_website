@@ -1,24 +1,33 @@
 import React from "react";
 import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import "./Skill.css";
 
 const Skill = ({ skill, icon, order, maxOrder }) => {
     const [orderValue, setOrderValue] = useState(order + 1);
 
-    useEffect(() => {
-        const swap = setInterval(() => {
-            orderValue > 0
-                ? setOrderValue(orderValue - 1)
-                : setOrderValue(maxOrder);
-        }, 2000);
+    const carousel = useSelector((state) => state.carousel);
 
-        document.addEventListener("visibilitychange", () => {
+    useEffect(() => {
+        let swap;
+
+        if (carousel) {
+            swap = setInterval(() => {
+                orderValue > 0
+                    ? setOrderValue(orderValue - 1)
+                    : setOrderValue(maxOrder);
+            }, 2000);
+        } else {
+            clearInterval(swap);
+        }
+
+        /* document.addEventListener("visibilitychange", () => {
             setOrderValue(orderValue);
-        });
+        }); */
         return () => {
             clearInterval(swap);
         };
-    }, [orderValue, maxOrder, order]);
+    }, [orderValue, maxOrder, order, carousel]);
 
     return (
         <div

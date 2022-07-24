@@ -8,6 +8,7 @@ import services from "./services";
 import projects from "./projects";
 import messages from "./messages";
 import row from "./row";
+import carousel from "./carousel";
 
 const persistConfig = {
     key: "root",
@@ -21,6 +22,7 @@ const rootReducer = combineReducers({
     projects,
     messages,
     row,
+    carousel,
 });
 
 export default persistReducer(persistConfig, rootReducer);

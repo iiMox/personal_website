@@ -1,5 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { logout } from "../../actions/auth";
 import axios from "axios";
 
 import "./Home.css";
@@ -13,6 +15,8 @@ import Contact from "../../sections/Contact";
 import Footer from "../../helpers/Footer";
 
 const Home = () => {
+    const dispatch = useDispatch();
+
     const [loading, setLoading] = useState(true);
 
     const [skills, setSkills] = useState([]);
@@ -42,6 +46,10 @@ const Home = () => {
     useEffect(() => {
         fetchData();
     }, [loading]);
+
+    useEffect(() => {
+        dispatch(logout());
+    });
 
     return loading ? (
         <Loading />

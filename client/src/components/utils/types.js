@@ -25,3 +25,5 @@ export const DELETE_MESSAGE = "DELETE_MESSAGE";
 
 export const SET_ROW = "SET_ROW";
 export const CLEAR_ROW = "CLEAR_ROW";
+
+export const CAROUSEL_VISIBILITY = "CAROUSEL_VISIBILITY";
