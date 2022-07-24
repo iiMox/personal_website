@@ -10,7 +10,7 @@ const Skill = ({ skill, icon, order, maxOrder }) => {
             orderValue > 0
                 ? setOrderValue(orderValue - 1)
                 : setOrderValue(maxOrder);
-        }, 3000);
+        }, 2000);
 
         document.addEventListener("visibilitychange", () => {
             setOrderValue(orderValue);
@@ -33,7 +33,7 @@ const Skill = ({ skill, icon, order, maxOrder }) => {
                         : (orderValue - 1) * 25
                 }%`,
                 transition: `left ${
-                    orderValue === maxOrder ? 0 : 0.3
+                    orderValue === maxOrder ? 0 : 0.2
                 }s ease-in-out`,
             }}
         >
