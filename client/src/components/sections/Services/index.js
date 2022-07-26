@@ -1,5 +1,5 @@
 import React from "react";
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import { useDispatch } from "react-redux";
 import { setCarouselVisibility } from "../../actions/carousel";
 import CarouselVisibility from "../../utils/carouselVisibility";
@@ -14,8 +14,6 @@ const Services = ({ skills, services }) => {
     const dispatch = useDispatch();
 
     dispatch(setCarouselVisibility(CarouselVisibility(carouselRef, "0px")));
-
-    useEffect(() => {}, []);
 
     return (
         <div className='services' id='services'>
