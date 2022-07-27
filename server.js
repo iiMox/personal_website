@@ -1,5 +1,5 @@
 const express = require("express");
-const path = require("path");
+const path = require("path"); /* Add This To Fix Routing Issues */
 require("./db/connection");
 const app = express();
 const port = process.env.PORT;
