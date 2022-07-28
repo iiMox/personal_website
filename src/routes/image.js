@@ -34,6 +34,7 @@ router.post("/", upload.single("image"), async (req, res) => {
                 imageInfo.resources[0].width > 1920 ||
                 imageInfo.resources[0].height > 1080
             ) {
+                console.log("gi");
                 await cloudinary.uploader.explicit(
                     `PersonalWebsite/${req.file.path.slice(
                         req.file.path.lastIndexOf("/") + 1,
