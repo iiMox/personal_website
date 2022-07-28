@@ -1,0 +1,28 @@
+.gallery {
+    background-image: linear-gradient(to bottom right, #af4eff, #2e23bd);
+    color: #fff;
+    padding: 60px 0;
+}
+
+.gallery h2 {
+    margin-bottom: 50px;
+    position: relative;
+    padding-bottom: 10px;
+    text-align: center;
+}
+
+.gallery h2:after {
+    content: "";
+    border: 2px solid #fff;
+    width: 50px;
+    position: absolute;
+    top: 100%;
+    right: calc(50% - 25px);
+}
+
+.gallery .projects {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
