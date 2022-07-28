@@ -87,6 +87,10 @@
         width: 100%;
     }
 
+    .services .skills-box .carousel {
+        min-height: 100px;
+    }
+
     .services .services-box {
         padding-top: 20px;
     }
@@ -101,6 +105,30 @@
 }
 
 @media (min-width: 576px) and (max-width: 767px) {
+    .services .holder-box {
+        flex-direction: column;
+        row-gap: 20px;
+    }
+
+    .services .skills-box {
+        width: 100%;
+    }
+
+    .services .skills-box .carousel {
+        min-height: 100px;
+    }
+
+    .services .services-box {
+        padding-top: 20px;
+    }
+
+    .services .services-box::before {
+        height: 4px;
+        width: 40%;
+        top: 0%;
+        left: 50%;
+        transform: translateX(-50%);
+    }
 }
 
 @media (min-width: 768px) and (max-width: 991px) {
