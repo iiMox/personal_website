@@ -34,14 +34,17 @@ router.post("/", upload.single("image"), async (req, res) => {
                 imageInfo.resources[0].width > 1920 ||
                 imageInfo.resources[0].height > 1080
             ) {
-                console.log("gi");
-                await cloudinary.uploader.explicit(
+                const res = await cloudinary.uploader.explicit(
                     `PersonalWebsite/${req.file.path.slice(
                         req.file.path.lastIndexOf("/") + 1,
                         req.file.path.lastIndexOf(".")
                     )}`,
-                    { type: "upload", eager: [{ width: 1920, crop: "pad" }] }
+                    {
+                        type: "upload",
+                        eager: [{ width: 1920, height: 1080, crop: "pad" }],
+                    }
                 );
+                console.log(res);
             }
             return res.status(200).send(req.file.path);
         } else {
