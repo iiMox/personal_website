@@ -57,16 +57,10 @@ router.post("/", upload.single("image"), async (req, res) => {
 
 router.delete("/:publicId", async (req, res) => {
     try {
-        cloudinary.uploader.destroy(
+        await cloudinary.api.delete_resources([
             `PersonalWebsite/${req.params.publicId}`,
-            { type: "upload", invalidate: true },
-            async (error, result) => {
-                if (error) {
-                    return res.status(400).send(error);
-                }
-                res.status(200).send();
-            }
-        );
+        ]);
+        res.status(200).send();
     } catch (e) {}
 });
 
