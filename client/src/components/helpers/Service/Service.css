@@ -10,7 +10,7 @@
     width: 20%;
 }
 
-.service-box h5 {
+.service-box h3 {
     margin: 10px 0;
     font-size: 20px;
     font-weight: 500;
@@ -29,7 +29,7 @@
         width: 40%;
     }
 
-    .service-box h5 {
+    .service-box h3 {
         font-size: 13px;
     }
 
@@ -43,7 +43,7 @@
         width: 40%;
     }
 
-    .service-box h5 {
+    .service-box h3 {
         font-size: 15px;
     }
 
@@ -57,7 +57,7 @@
         width: 40%;
     }
 
-    .service-box h5 {
+    .service-box h3 {
         font-size: 15px;
     }
 

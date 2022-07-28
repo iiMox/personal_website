@@ -5,7 +5,7 @@ const Service = ({ title, description, icon }) => {
     return (
         <div className='service-box'>
             <img src={icon} alt={title} />
-            <h5>{title}</h5>
+            <h3>{title}</h3>
             <p>{description}</p>
         </div>
     );
