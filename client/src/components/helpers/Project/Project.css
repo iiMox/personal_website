@@ -47,7 +47,7 @@
     padding: 20px 0;
 }
 
-.img-overflow h5 {
+.img-overflow h3 {
     color: #fff;
     font-weight: 500;
     letter-spacing: 1px;
@@ -72,7 +72,7 @@
 } */
 
 @media (max-width: 575px) {
-    .img-overflow h5 {
+    .img-overflow h3 {
         margin-bottom: 5px;
         font-size: 12px;
     }
@@ -84,7 +84,7 @@
 }
 
 @media (min-width: 576px) and (max-width: 767px) {
-    .img-overflow h5 {
+    .img-overflow h3 {
         margin-bottom: 10px;
         font-size: 15px;
     }
@@ -95,7 +95,7 @@
 }
 
 @media (min-width: 768px) and (max-width: 991px) {
-    .img-overflow h5 {
+    .img-overflow h3 {
         margin-bottom: 10px;
         font-size: 15px;
     }

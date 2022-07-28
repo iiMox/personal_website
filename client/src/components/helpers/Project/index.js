@@ -22,7 +22,7 @@ const Project = ({ title, link, imageURL }) => {
         >
             <div className='img-overflow ' ref={hoverRef}>
                 <div>
-                    <h5>{title}</h5>
+                    <h3>{title}</h3>
                 </div>
             </div>
             <img src={imageURL} alt={title} />
