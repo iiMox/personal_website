@@ -1,0 +1,102 @@
+.dashboard {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: row;
+}
+
+.dashboard .sidebar {
+    width: 15%;
+    background-image: linear-gradient(to bottom, #af4eff, #2e23bd);
+    position: relative;
+}
+
+.dashboard .sidebar ul {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 100px 0 0 40px;
+    margin: 0;
+    list-style: none;
+    row-gap: 30px;
+}
+
+.dashboard .sidebar ul li {
+    color: #fff;
+    font-size: 22px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    column-gap: 20px;
+    cursor: pointer;
+    position: relative;
+}
+
+.dashboard .sidebar ul li::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 0;
+    width: 0;
+    height: 2px;
+    background-color: #fff;
+    transition: all 0.2s ease-in-out;
+}
+
+.dashboard .sidebar ul li:hover::after {
+    width: 25%;
+}
+
+.dashboard .sidebar ul li img {
+    width: 36px;
+}
+
+.dashboard .sidebar .down {
+    position: absolute;
+    width: 100%;
+    bottom: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.dashboard .sidebar .down .line-left,
+.dashboard .sidebar .down .line-right {
+    width: 40%;
+    height: 2px;
+    background-color: #fff;
+}
+
+.dashboard .sidebar .down .circle {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: #fff;
+}
+
+.dashboard .content {
+    width: 85%;
+}
+
+@media (max-width: 575.98px) {
+}
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+}
+
+@media (min-width: 992px) and (max-width: 1199.98px) {
+}
+
+@media (min-width: 1200px) and (max-width: 1399px) {
+}
+
+@media (min-width: 1400px) and (max-width: 1599px) {
+}
