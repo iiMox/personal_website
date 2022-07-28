@@ -47,7 +47,7 @@ const Skill = ({ skill, icon, order, maxOrder }) => {
             }}
         >
             <img src={icon} alt={skill} />
-            <h5>{skill}</h5>
+            <h3>{skill}</h3>
         </div>
     );
 };
