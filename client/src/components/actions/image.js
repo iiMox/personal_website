@@ -6,7 +6,7 @@ export const uploadImage = async (image) => {
     formData.append("image", image);
 
     try {
-        const res = await axios.post("/image", formData);
+        const res = await axios.post("/api/image", formData);
 
         return res.data;
     } catch (e) {}

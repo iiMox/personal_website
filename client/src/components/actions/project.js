@@ -13,7 +13,7 @@ import { deleteImage } from "./image";
 
 export const getAllProjects = () => async (dispatch) => {
     try {
-        const res = await axios.get("/project");
+        const res = await axios.get("/api/project");
 
         dispatch({ type: GET_PROJECTS, payload: res.data });
     } catch (e) {}
@@ -21,7 +21,7 @@ export const getAllProjects = () => async (dispatch) => {
 
 export const addProject = (project) => async (dispatch) => {
     try {
-        const res = await axios.post("/project", project, token);
+        const res = await axios.post("/api/project", project, token);
 
         dispatch({ type: ADD_PROJECT, payload: res.data });
     } catch (e) {}
@@ -29,7 +29,7 @@ export const addProject = (project) => async (dispatch) => {
 
 export const updateProject = (_id, project) => async (dispatch) => {
     try {
-        const res = await axios.put(`/project/${_id}`, project, token);
+        const res = await axios.put(`/api/project/${_id}`, project, token);
 
         dispatch({ type: UPDATE_PROJECT, payload: res.data });
     } catch (e) {}
@@ -39,7 +39,7 @@ export const deleteProject = (_id, url) => async (dispatch) => {
     try {
         await deleteImage(url);
 
-        await axios.delete(`/project/${_id}`, token);
+        await axios.delete(`/api/project/${_id}`, token);
 
         dispatch({ type: DELETE_PROJECT, payload: _id });
     } catch (e) {}

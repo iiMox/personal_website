@@ -13,14 +13,14 @@ import { deleteImage } from "./image";
 
 export const getAllServices = () => async (dispatch) => {
     try {
-        const res = await axios("/service");
+        const res = await axios("/api/service");
         dispatch({ type: GET_SERVICES, payload: res.data });
     } catch (e) {}
 };
 
 export const addService = (service) => async (dispatch) => {
     try {
-        const res = await axios.post("/service", service, token);
+        const res = await axios.post("/api/service", service, token);
 
         dispatch({ type: ADD_SERVICE, payload: res.data });
     } catch (e) {}
@@ -28,7 +28,7 @@ export const addService = (service) => async (dispatch) => {
 
 export const updateService = (_id, service) => async (dispatch) => {
     try {
-        const res = await axios.put(`/service/${_id}`, service, token);
+        const res = await axios.put(`/api/service/${_id}`, service, token);
 
         dispatch({ type: UPDATE_SERVICE, payload: res.data });
     } catch (e) {}
@@ -38,7 +38,7 @@ export const deleteService = (_id, url) => async (dispatch) => {
     try {
         await deleteImage(url);
 
-        await axios.delete(`/service/${_id}`, token);
+        await axios.delete(`/api/service/${_id}`, token);
 
         dispatch({ type: DELETE_SERVICE, payload: _id });
     } catch (e) {}

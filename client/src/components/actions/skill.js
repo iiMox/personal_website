@@ -13,7 +13,7 @@ import { deleteImage } from "./image";
 
 export const getAllSkills = () => async (dispatch) => {
     try {
-        const res = await axios.get("/skill");
+        const res = await axios.get("/api/skill");
 
         dispatch({ type: GET_SKILLS, payload: res.data });
     } catch (e) {}
@@ -21,7 +21,7 @@ export const getAllSkills = () => async (dispatch) => {
 
 export const addSkill = (skill) => async (dispatch) => {
     try {
-        const res = await axios.post("/skill", skill, token);
+        const res = await axios.post("/api/skill", skill, token);
 
         dispatch({ type: ADD_SKILL, payload: res.data });
     } catch (e) {}
@@ -29,7 +29,7 @@ export const addSkill = (skill) => async (dispatch) => {
 
 export const updateSkill = (_id, skill) => async (dispatch) => {
     try {
-        const res = await axios.put(`/skill/${_id}`, skill, token);
+        const res = await axios.put(`/api/skill/${_id}`, skill, token);
 
         dispatch({ type: UPDATE_SKILL, payload: res.data });
     } catch (e) {}
@@ -39,7 +39,7 @@ export const deleteSkill = (_id, url) => async (dispatch) => {
     try {
         await deleteImage(url);
 
-        await axios.delete(`/skill/${_id}`, token);
+        await axios.delete(`/api/skill/${_id}`, token);
 
         dispatch({ type: DELETE_SKILL, payload: _id });
     } catch (e) {}
