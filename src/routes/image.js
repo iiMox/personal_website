@@ -25,10 +25,10 @@ router.post("/", upload.single("image"), async (req, res) => {
     try {
         if (req.file && req.file.path) {
             const imageInfo = await cloudinary.api.resources_by_ids([
-                req.file.path.slice(
+                `PersonalWebsite/${req.file.path.slice(
                     req.file.path.lastIndexOf("/") + 1,
                     req.file.path.lastIndexOf(".")
-                ),
+                )}`,
             ]);
             console.log(imageInfo);
             return res.status(200).send(req.file.path);
