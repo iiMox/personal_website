@@ -59,7 +59,7 @@ router.delete("/:publicId", async (req, res) => {
     try {
         cloudinary.uploader.destroy(
             `PersonalWebsite/${req.params.publicId}`,
-            { invalidate: true },
+            { type: "upload", invalidate: true },
             async (error, result) => {
                 if (error) {
                     return res.status(400).send(error);
