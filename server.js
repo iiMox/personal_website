@@ -13,12 +13,12 @@ const imageRouter = require("./src/routes/image");
 
 app.use(express.json());
 
-app.use("/auth", authRouter);
-app.use("/skill", skillRouter);
-app.use("/service", serviceRouter);
-app.use("/project", projectRouter);
-app.use("/message", messageRouter);
-app.use("/image", imageRouter);
+app.use("/api/auth", authRouter);
+app.use("/api/skill", skillRouter);
+app.use("/api/service", serviceRouter);
+app.use("/api/project", projectRouter);
+app.use("/api/message", messageRouter);
+app.use("/api/image", imageRouter);
 
 /* // Serve static assets in production
 if (process.env.NODE_ENV === "production") {
