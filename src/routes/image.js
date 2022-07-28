@@ -23,11 +23,14 @@ const router = new express.Router();
 
 router.post("/", upload.single("image"), async (req, res) => {
     try {
-        if (req.file && req.file.path) {
+        console.log(req.file);
+        const res = await cloudinary.uploader.upload(req.file.path);
+        /* if (req.file && req.file.path) {
             return res.status(200).send(req.file.path);
         } else {
             res.status(422).send();
-        }
+        } */
+        res.status(200).send(res.secure_url);
     } catch (e) {
         res.status(400).send();
     }
