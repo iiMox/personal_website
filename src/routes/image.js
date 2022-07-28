@@ -24,13 +24,7 @@ const router = new express.Router();
 router.post("/", upload.single("image"), async (req, res) => {
     try {
         if (req.file && req.file.path) {
-            console.log(
-                req.file.path.slice(
-                    req.file.path.lastIndexOf("/") + 1,
-                    req.file.path.lastIndexOf(".")
-                )
-            );
-            const imageInfo = await cloudinary.api.metadata_field_by_field_id(
+            const imageInfo = await cloudinary.api.resource(
                 req.file.path.slice(
                     req.file.path.lastIndexOf("/") + 1,
                     req.file.path.lastIndexOf(".")
