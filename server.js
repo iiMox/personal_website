@@ -20,6 +20,10 @@ app.use("/api/project", projectRouter);
 app.use("/api/message", messageRouter);
 app.use("/api/image", imageRouter);
 
+app.get("/", (req, res) => {
+    res.send("Working...");
+});
+
 /* // Serve static assets in production
 if (process.env.NODE_ENV === "production") {
     //Set static folder
