@@ -44,7 +44,7 @@ router.post("/", upload.single("image"), async (req, res) => {
                         eager: [{ width: 1920, height: 1080, crop: "pad" }],
                     }
                 );
-                console.log(res);
+                return res.status(200).send(res.eager[0].url);
             }
             return res.status(200).send(req.file.path);
         } else {
