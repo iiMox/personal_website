@@ -24,14 +24,20 @@ const router = new express.Router();
 router.post("/", upload.single("image"), async (req, res) => {
     try {
         if (req.file && req.file.path) {
+            console.log(
+                req.file.path.slice(
+                    req.file.path.lastIndexOf("/") + 1,
+                    req.file.path.lastIndexOf(".")
+                )
+            );
             const imageInfo = await cloudinary.api.metadata_field_by_field_id(
                 req.file.path.slice(
-                    url.lastIndexOf("/") + 1,
-                    url.lastIndexOf(".")
+                    req.file.path.lastIndexOf("/") + 1,
+                    req.file.path.lastIndexOf(".")
                 )
             );
             console.log(imageInfo);
-            /* return res.status(200).send(req.file.path); */
+            return res.status(200).send(req.file.path);
         } else {
             res.status(422).send();
         }
