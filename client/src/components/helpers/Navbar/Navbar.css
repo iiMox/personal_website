@@ -9,7 +9,8 @@ nav .container {
     display: flex;
     flex-direction: row;
     align-items: flex-end;
-    justify-content: space-between;
+    width: 100%;
+    padding: 0 10px;
 }
 
 nav .logo {
@@ -79,6 +80,7 @@ nav .hidden-menu ul li {
 nav .links {
     overflow: hidden;
     transition: all 0.25s ease-in-out;
+    margin: 0 auto;
 }
 
 nav .links ul {
@@ -107,6 +109,11 @@ nav .links ul .ul-hover {
     nav {
         padding: 10px 0;
     }
+
+    nav .container {
+        justify-content: space-between;
+    }
+
     nav .menu-icon {
         display: flex;
     }
