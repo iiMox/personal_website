@@ -46,18 +46,7 @@ nav .hidden-menu.hide {
     right: -100%;
 }
 
-nav .hidden-menu ul {
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-    justify-content: center;
-    row-gap: 40px;
-    position: relative;
-}
-
-nav .hidden-menu ul .close-icon {
+nav .hidden-menu .close-icon {
     width: 24px;
     position: absolute;
     top: 5%;
@@ -66,8 +55,18 @@ nav .hidden-menu ul .close-icon {
     transition: all 0.5s ease-in-out;
 }
 
-nav .hidden-menu ul .close-icon:hover {
+nav .hidden-menu .close-icon:hover {
     transform: rotate(180deg);
+}
+
+nav .hidden-menu ul {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: center;
+    row-gap: 40px;
 }
 
 nav .hidden-menu ul li {

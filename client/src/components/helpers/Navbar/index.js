@@ -47,17 +47,17 @@ const Navbar = () => {
                     />
                 </div>
                 <div className='hidden-menu hide'>
+                    <img
+                        className='close-icon'
+                        src={closeIcon}
+                        alt='Close'
+                        onClick={() => {
+                            document
+                                .querySelector("nav .hidden-menu")
+                                .classList.add("hide");
+                        }}
+                    />
                     <ul>
-                        <img
-                            className='close-icon'
-                            src={closeIcon}
-                            alt='Close'
-                            onClick={() => {
-                                document
-                                    .querySelector("nav .hidden-menu")
-                                    .classList.add("hide");
-                            }}
-                        />
                         {items.map((item) => {
                             return (
                                 <li
