@@ -1,34 +1,12 @@
 import React from "react";
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import NavItem from "../NavItem";
 import "./Navbar.css";
 import menuIcon from "../../../images/menu.webp";
+import logoImg from "../../../images/logo.webp";
+import closeIcon from "../../../images/close.webp";
 
 const Navbar = () => {
-    useEffect(() => {
-        if (window.innerWidth < 576) {
-            linksRef.current.className = `${linksRef.current.className} hide`;
-        }
-
-        window.addEventListener("resize", () => {
-            if (window.innerWidth < 576) {
-                if (linksRef.current.className.includes("hide")) {
-                    linksRef.current.style.height = 0;
-                } else {
-                    linksRef.current.style.height =
-                        document.querySelector("nav .links ul").offsetHeight +
-                        "px";
-                }
-            } else {
-                linksRef.current.className = `links hide`;
-                linksRef.current.style.height =
-                    document.querySelector("nav .links ul").offsetHeight +
-                    10 +
-                    "px";
-            }
-        });
-    });
-
     const items = [
         { id: 1, item: "about", text: "About" },
         { id: 2, item: "services", text: "Services" },
@@ -54,25 +32,53 @@ const Navbar = () => {
     return (
         <nav>
             <div className='container'>
-                <div className='menu'>
+                <div className='logo'>
+                    <img src={logoImg} alt='Logo' />
+                </div>
+                <div className='menu-icon'>
                     <img
                         src={menuIcon}
                         alt='Menu'
                         onClick={() => {
-                            if (
-                                linksRef.current.style.height === "0px" ||
-                                linksRef.current.style.height === ""
-                            ) {
-                                linksRef.current.className = "links";
-                                linksRef.current.style.height =
-                                    document.querySelector("nav .links ul")
-                                        .offsetHeight + "px";
-                            } else {
-                                linksRef.current.style.height = 0;
-                                linksRef.current.className = `${linksRef.current.className} hide`;
-                            }
+                            document
+                                .querySelector("nav .hidden-menu")
+                                .classList.remove("hide");
                         }}
                     />
+                </div>
+                <div className='hidden-menu hide'>
+                    <ul>
+                        <img
+                            className='close-icon'
+                            src={closeIcon}
+                            alt='Close'
+                            onClick={() => {
+                                document
+                                    .querySelector("nav .hidden-menu")
+                                    .classList.add("hide");
+                            }}
+                        />
+                        {items.map((item) => {
+                            return (
+                                <li
+                                    onClick={() => {
+                                        document
+                                            .querySelector("nav .hidden-menu")
+                                            .classList.add("hide");
+                                        window.scrollTo({
+                                            top:
+                                                document.getElementById(
+                                                    item.item
+                                                ).offsetTop - 100,
+                                            behavior: "smooth",
+                                        });
+                                    }}
+                                >
+                                    {item.text}
+                                </li>
+                            );
+                        })}
+                    </ul>
                 </div>
                 <div className='links' ref={linksRef}>
                     <ul>
