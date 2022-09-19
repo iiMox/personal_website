@@ -1,4 +1,5 @@
 const express = require("express");
+const bcrypt = require("bcrypt");
 const Admin = require("../models/admin");
 
 const router = new express.Router();
@@ -19,7 +20,7 @@ router.post("/register", async (req, res) => {
     const newAdmin = new Admin({
         username: username,
         email: email.toLowerCase(),
-        password: password,
+        password: await bcrypt.hash(password, 8),
     });
 
     await newAdmin.save();
