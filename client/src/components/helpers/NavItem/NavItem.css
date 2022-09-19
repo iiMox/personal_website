@@ -1,0 +1,38 @@
+li {
+    display: inline-block;
+    text-align: center;
+    color: #af4eff;
+    padding: 10px 20px 15px;
+    transition: all 0.25s ease-in-out;
+}
+
+li:hover {
+    cursor: pointer;
+    transition: all 0.35s ease-in-out;
+}
+
+@media (max-width: 575px) {
+    li {
+        padding: 10px 15px 15px;
+    }
+
+    li:hover {
+        color: #af4eff !important;
+        transform: translateX(20px);
+    }
+}
+
+@media (min-width: 576px) and (max-width: 767px) {
+    li {
+        padding: 10px 15px 15px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+}
+
+@media (min-width: 1200px) {
+}
