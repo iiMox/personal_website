@@ -6,3 +6,4 @@ beforeAll(async () => {
 
 require("./auth");
 require("./skill");
+require("./project");

@@ -1,6 +1,6 @@
 const request = require("supertest");
 const app = require("../server");
-const Admin = require("../src/models/Admin");
+const Admin = require("../src/models/admin");
 const Skill = require("../src/models/skill");
 
 const skill = {
