@@ -29,9 +29,9 @@ test("Add New Project", async () => {
 
 test("Update Project", async () => {
     const admin = await Admin.findByCredentials("Test", "12345");
-    const project = await Project.findOne({ title: "Test project" });
+    const projectToUpdate = await Project.findOne({ title: "Test project" });
     await request(app)
-        .put(`/api/project/${project._id}`)
+        .put(`/api/project/${projectToUpdate._id}`)
         .set("Authorization", `Bearer ${admin.tokens[0].token}`)
         .send({ title: "Updated Title" })
         .expect(200);
@@ -39,9 +39,9 @@ test("Update Project", async () => {
 
 test("Delete Project", async () => {
     const admin = await Admin.findByCredentials("Test", "12345");
-    const project = await Project.findOne({ title: "Updated Title" });
+    const projectToDelete = await Project.findOne({ title: "Updated Title" });
     await await request(app)
-        .delete(`/api/project/${project._id}`)
+        .delete(`/api/project/${projectToDelete._id}`)
         .set("Authorization", `Bearer ${admin.tokens[0].token}`)
         .expect(200);
 });

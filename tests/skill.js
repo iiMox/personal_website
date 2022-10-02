@@ -29,9 +29,9 @@ test("Add New Skill", async () => {
 
 test("Update A Skill", async () => {
     const admin = await Admin.findByCredentials("Test", "12345");
-    const skill = await Skill.findOne({ skill: "HTML" });
+    const skillToUpdate = await Skill.findOne({ skill: "HTML" });
     await request(app)
-        .put(`/api/skill/${skill._id}`)
+        .put(`/api/skill/${skillToUpdate._id}`)
         .set("Authorization", `Bearer ${admin.tokens[0].token}`)
         .send({ skill: "CSS" })
         .expect(200);
@@ -39,9 +39,9 @@ test("Update A Skill", async () => {
 
 test("Delete A Skill", async () => {
     const admin = await Admin.findByCredentials("Test", "12345");
-    const skill = await Skill.findOne({ skill: "CSS" });
+    const skillToDelete = await Skill.findOne({ skill: "CSS" });
     await request(app)
-        .delete(`/api/skill/${skill._id}`)
+        .delete(`/api/skill/${skillToDelete._id}`)
         .set("Authorization", `Bearer ${admin.tokens[0].token}`)
         .expect(200);
 });
