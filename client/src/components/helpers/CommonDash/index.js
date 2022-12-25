@@ -149,14 +149,10 @@ const CommonDash = ({ title, skills, services, projects, messages }) => {
                 <tbody>
                     {title === "Skills" ? (
                         skills.length === 0 ? (
-<<<<<<< HEAD
                             <tr
                                 className='empty'
                                 style={{ backgroundColor: "#fff" }}
                             >
-=======
-                            <tr style={{ backgroundColor: "#fff" }}>
->>>>>>> f13e33ac533797b88d48c0103178fcdc941261df
                                 <td
                                     className='empty'
                                     colSpan='6'
@@ -189,14 +185,10 @@ const CommonDash = ({ title, skills, services, projects, messages }) => {
                         )
                     ) : title === "Services" ? (
                         services.length === 0 ? (
-<<<<<<< HEAD
                             <tr
                                 className='empty'
                                 style={{ backgroundColor: "#fff" }}
                             >
-=======
-                            <tr style={{ backgroundColor: "#fff" }}>
->>>>>>> f13e33ac533797b88d48c0103178fcdc941261df
                                 <td
                                     className='empty'
                                     colSpan='7'
@@ -230,14 +222,10 @@ const CommonDash = ({ title, skills, services, projects, messages }) => {
                         )
                     ) : title === "Projects" ? (
                         projects.length === 0 ? (
-<<<<<<< HEAD
                             <tr
                                 className='empty'
                                 style={{ backgroundColor: "#fff" }}
                             >
-=======
-                            <tr style={{ backgroundColor: "#fff" }}>
->>>>>>> f13e33ac533797b88d48c0103178fcdc941261df
                                 <td
                                     className='empty'
                                     colSpan='6'
@@ -269,14 +257,10 @@ const CommonDash = ({ title, skills, services, projects, messages }) => {
                             })
                         )
                     ) : messages.length === 0 ? (
-<<<<<<< HEAD
                         <tr
                             className='empty'
                             style={{ backgroundColor: "#fff" }}
                         >
-=======
-                        <tr style={{ backgroundColor: "#fff" }}>
->>>>>>> f13e33ac533797b88d48c0103178fcdc941261df
                             <td
                                 className='empty'
                                 colSpan='7'
