@@ -145,6 +145,7 @@
 }
 
 @media (max-width: 575.98px) {
+<<<<<<< HEAD
     .edit-widget .wrapper {
         width: 75%;
     }
@@ -178,4 +179,21 @@
     .edit-widget .wrapper {
         width: 30%;
     }
+=======
+}
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+}
+
+@media (min-width: 992px) and (max-width: 1199.98px) {
+}
+
+@media (min-width: 1200px) and (max-width: 1399px) {
+}
+
+@media (min-width: 1400px) and (max-width: 1599px) {
+>>>>>>> f13e33ac533797b88d48c0103178fcdc941261df
 }

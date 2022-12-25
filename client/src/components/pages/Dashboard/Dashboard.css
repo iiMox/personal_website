@@ -55,7 +55,6 @@
 .dashboard .sidebar .menu:hover span:last-of-type {
     width: 40px;
 }
-
 .dashboard .sidebar ul {
     display: flex;
     flex-direction: column;
@@ -104,7 +103,6 @@
 .dashboard .sidebar ul li img {
     width: 36px;
 }
-
 .dashboard .sidebar ul span {
     width: 2px;
     height: 46px;
