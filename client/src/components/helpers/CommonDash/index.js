@@ -149,7 +149,10 @@ const CommonDash = ({ title, skills, services, projects, messages }) => {
                 <tbody>
                     {title === "Skills" ? (
                         skills.length === 0 ? (
-                            <tr style={{ backgroundColor: "#fff" }}>
+                            <tr
+                                className='empty'
+                                style={{ backgroundColor: "#fff" }}
+                            >
                                 <td
                                     className='empty'
                                     colSpan='6'
@@ -182,7 +185,10 @@ const CommonDash = ({ title, skills, services, projects, messages }) => {
                         )
                     ) : title === "Services" ? (
                         services.length === 0 ? (
-                            <tr style={{ backgroundColor: "#fff" }}>
+                            <tr
+                                className='empty'
+                                style={{ backgroundColor: "#fff" }}
+                            >
                                 <td
                                     className='empty'
                                     colSpan='7'
@@ -216,7 +222,10 @@ const CommonDash = ({ title, skills, services, projects, messages }) => {
                         )
                     ) : title === "Projects" ? (
                         projects.length === 0 ? (
-                            <tr style={{ backgroundColor: "#fff" }}>
+                            <tr
+                                className='empty'
+                                style={{ backgroundColor: "#fff" }}
+                            >
                                 <td
                                     className='empty'
                                     colSpan='6'
@@ -248,7 +257,10 @@ const CommonDash = ({ title, skills, services, projects, messages }) => {
                             })
                         )
                     ) : messages.length === 0 ? (
-                        <tr style={{ backgroundColor: "#fff" }}>
+                        <tr
+                            className='empty'
+                            style={{ backgroundColor: "#fff" }}
+                        >
                             <td
                                 className='empty'
                                 colSpan='7'

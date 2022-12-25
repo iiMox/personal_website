@@ -3,9 +3,63 @@
 }
 
 @media (max-width: 575.98px) {
+    .messages-content td:nth-of-type(1):before {
+        content: "N°";
+    }
+
+    .messages-content td:nth-of-type(2):before {
+        content: "Name";
+    }
+
+    .messages-content td:nth-of-type(3):before {
+        content: "E-mail";
+    }
+
+    .messages-content td:nth-of-type(4):before {
+        content: "Subject";
+    }
+
+    .messages-content td:nth-of-type(5):before {
+        content: "Content";
+    }
+
+    .messages-content td:nth-of-type(7):before {
+        content: "Date";
+    }
+
+    .messages-content td:nth-of-type(7):before {
+        content: "Actions";
+    }
 }
 
 @media (min-width: 576px) and (max-width: 767.98px) {
+    .messages-content td:nth-of-type(1):before {
+        content: "N°";
+    }
+
+    .messages-content td:nth-of-type(2):before {
+        content: "Name";
+    }
+
+    .messages-content td:nth-of-type(3):before {
+        content: "E-mail";
+    }
+
+    .messages-content td:nth-of-type(4):before {
+        content: "Subject";
+    }
+
+    .messages-content td:nth-of-type(5):before {
+        content: "Content";
+    }
+
+    .messages-content td:nth-of-type(7):before {
+        content: "Date";
+    }
+
+    .messages-content td:nth-of-type(7):before {
+        content: "Actions";
+    }
 }
 
 @media (min-width: 768px) and (max-width: 991.98px) {

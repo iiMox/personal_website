@@ -61,19 +61,42 @@
 }
 
 @media (max-width: 575.98px) {
+    .delete-widget .wrapper {
+        width: 75%;
+        padding: 20px 10px;
+    }
+
+    .delete-widget .wrapper .buttons button {
+        padding: 10px 25px;
+    }
 }
 
 @media (min-width: 576px) and (max-width: 767.98px) {
+    .delete-widget .wrapper {
+        width: 60%;
+    }
 }
 
 @media (min-width: 768px) and (max-width: 991.98px) {
+    .delete-widget .wrapper {
+        width: 50%;
+    }
 }
 
 @media (min-width: 992px) and (max-width: 1199.98px) {
+    .delete-widget .wrapper {
+        width: 40%;
+    }
 }
 
 @media (min-width: 1200px) and (max-width: 1399px) {
+    .delete-widget .wrapper {
+        width: 35%;
+    }
 }
 
 @media (min-width: 1400px) and (max-width: 1599px) {
+    .delete-widget .wrapper {
+        width: 30%;
+    }
 }

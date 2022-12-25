@@ -128,12 +128,188 @@
 }
 
 @media (max-width: 575.98px) {
+    .common-dash .top h2 {
+        font-size: 35px;
+    }
+
+    .common-dash form .add {
+        padding: 0;
+        border: none;
+    }
+
+    .common-dash form .search input {
+        width: 75px;
+    }
+
+    .common-dash form .add button {
+        display: none;
+    }
+
+    .common-dash table,
+    .common-dash table thead,
+    .common-dash table tbody,
+    .common-dash table th,
+    .common-dash table td,
+    .common-dash table tr {
+        display: block;
+    }
+
+    .common-dash thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+        border-right: 1px solid #ddd;
+        border-left: 1px solid #ddd;
+    }
+
+    .common-dash tr td {
+        border: none;
+        border-bottom: 1px solid #ddd;
+        position: relative;
+        padding-left: 50%;
+        border-right: none;
+        background-color: #fff;
+    }
+
+    .common-dash tr td:nth-child(odd) {
+        background: #f6f6f6;
+    }
+
+    .common-dash tr td:before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 50%;
+        height: 100%;
+        white-space: nowrap;
+        border-right: 1px solid #ddd;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #f6f6f6;
+    }
+
+    .common-dash tr td:first-of-type {
+        background-color: #a049f7;
+        color: #fff;
+        border: none;
+    }
+
+    .common-dash tr td:first-of-type:before {
+        background-color: #a049f7;
+        color: #fff;
+        border: none;
+    }
+
+    .common-dash tr td:last-of-type {
+        min-height: 41px;
+        border-bottom: none;
+    }
+
+    .common-dash table tr.empty {
+        display: flex;
+        padding: 0;
+        justify-content: center;
+    }
+
+    .common-dash tr td.empty {
+        border: none;
+        background-color: transparent;
+        color: #999;
+    }
+
+    .common-dash tr td.empty::before {
+        display: none;
+    }
 }
 
 @media (min-width: 576px) and (max-width: 767.98px) {
+    .common-dash .top h2 {
+        font-size: 40px;
+    }
+
+    .common-dash table,
+    .common-dash table thead,
+    .common-dash table tbody,
+    .common-dash table th,
+    .common-dash table td,
+    .common-dash table tr {
+        display: block;
+    }
+
+    .common-dash thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+        border-right: 1px solid #ddd;
+        border-left: 1px solid #ddd;
+    }
+
+    .common-dash tr td {
+        border: none;
+        border-bottom: 1px solid #ddd;
+        position: relative;
+        padding-left: 50%;
+        border-right: none;
+        background-color: #fff;
+    }
+
+    .common-dash tr td:nth-child(odd) {
+        background: #f6f6f6;
+    }
+
+    .common-dash tr td:before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 50%;
+        height: 100%;
+        white-space: nowrap;
+        border-right: 1px solid #ddd;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #f6f6f6;
+    }
+
+    .common-dash tr td:first-of-type {
+        background-color: #a049f7;
+        color: #fff;
+        border: none;
+    }
+
+    .common-dash tr td:first-of-type:before {
+        background-color: #a049f7;
+        color: #fff;
+        border: none;
+    }
+
+    .common-dash tr td:last-of-type {
+        min-height: 41px;
+        border-bottom: none;
+    }
+
+    .common-dash table tr.empty {
+        display: flex;
+        padding: 0;
+        justify-content: center;
+    }
+
+    .common-dash tr td.empty {
+        border: none;
+        background-color: transparent;
+        color: #999;
+    }
+
+    .common-dash tr td.empty::before {
+        display: none;
+    }
 }
 
 @media (min-width: 768px) and (max-width: 991.98px) {
+    .common-dash .top h2 {
+        font-size: 45px;
+    }
 }
 
 @media (min-width: 992px) and (max-width: 1199.98px) {

@@ -145,19 +145,37 @@
 }
 
 @media (max-width: 575.98px) {
+    .add-widget .wrapper {
+        width: 75%;
+    }
 }
 
 @media (min-width: 576px) and (max-width: 767.98px) {
+    .add-widget .wrapper {
+        width: 60%;
+    }
 }
 
 @media (min-width: 768px) and (max-width: 991.98px) {
+    .add-widget .wrapper {
+        width: 50%;
+    }
 }
 
 @media (min-width: 992px) and (max-width: 1199.98px) {
+    .add-widget .wrapper {
+        width: 40%;
+    }
 }
 
 @media (min-width: 1200px) and (max-width: 1399px) {
+    .add-widget .wrapper {
+        width: 35%;
+    }
 }
 
 @media (min-width: 1400px) and (max-width: 1599px) {
+    .add-widget .wrapper {
+        width: 30%;
+    }
 }
