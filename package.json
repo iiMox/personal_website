@@ -4,8 +4,8 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js",
-    "dev": "env-cmd -f ./config/dev.env nodemon ./server.js",
+    "start": "node api/server.js",
+    "dev": "env-cmd -f ./config/dev.env nodemon ./api/server.js",
     "test": "env-cmd -f ./config/test.env jest --watch --runInBand"
   },
   "author": "",
