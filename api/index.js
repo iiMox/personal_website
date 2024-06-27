@@ -1,15 +1,15 @@
 const express = require("express");
 const path = require("path"); /* Add This To Fix Routing Issues */
-require("./db/connection");
+require("../db/connection");
 const app = express();
 const port = process.env.PORT || 3000;
 
-const authRouter = require("./src/routes/auth");
-const skillRouter = require("./src/routes/skill");
-const serviceRouter = require("./src/routes/service");
-const projectRouter = require("./src/routes/project");
-const messageRouter = require("./src/routes/message");
-const imageRouter = require("./src/routes/image");
+const authRouter = require("../src/routes/auth");
+const skillRouter = require("../src/routes/skill");
+const serviceRouter = require("../src/routes/service");
+const projectRouter = require("../src/routes/project");
+const messageRouter = require("../src/routes/message");
+const imageRouter = require("../src/routes/image");
 
 app.use(express.json());
 
