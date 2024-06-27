@@ -1,0 +1,12 @@
+{
+    "rewrites": [
+        {
+            "source": "/api/:path*",
+            "destination": "https://portfolio-psi-jade-69.vercel.app/api/:path*"
+        },
+        {
+            "source": "/api/:path*/",
+            "destination": "https://portfolio-psi-jade-69.vercel.app/api/:path*/"
+        }
+    ]
+}
