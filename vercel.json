@@ -1,22 +1,8 @@
 {
-    "version": 2,
-    "builds": [
-        {
-            "src": "server.js",
-            "use": "@vercel/node"
-        },
-        {
-            "src": "client",
-            "use": "@vercel/react",
-            "config": {
-                "watch": "client/**/*"
-            }
-        }
-    ],
     "rewrites": [
         {
             "source": "/(.*)",
-            "destination": "/api/index.js"
+            "destination": "/api"
         }
     ]
 }
