@@ -2,7 +2,7 @@ const express = require("express");
 const path = require("path"); /* Add This To Fix Routing Issues */
 require("./db/connection");
 const app = express();
-const port = process.env.PORT;
+const port = process.env.PORT || 3000;
 
 const authRouter = require("./src/routes/auth");
 const skillRouter = require("./src/routes/skill");
@@ -34,7 +34,6 @@ if (process.env.NODE_ENV === "production") {
     });
 } */
 
-
 if (process.env.NODE_ENV != "test") {
     app.listen(port, () => {
         console.log(`Server is up ${port} ...`);
@@ -42,4 +41,3 @@ if (process.env.NODE_ENV != "test") {
 }
 
 module.exports = app;
-
