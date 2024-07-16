@@ -16,11 +16,11 @@ const Slider = () => {
         <div className='slider'>
             <div className='container'>
                 <div className='content'>
-                    <h1>YOU ASKED FOR A WEB DEVELOPER ?</h1>
+                    <h1>Looking for Digital Magic?</h1>
                     <p>
-                        We are here to help you develop your own website, it'll
-                        be a full responsive site using the latest technology in
-                        the field.
+                        Discover the enchantment of digital experiences. We
+                        craft custom websites using the latest technologies to
+                        captivate your audience.
                     </p>
                 </div>
                 <div className='image-box'>

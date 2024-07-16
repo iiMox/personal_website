@@ -12,9 +12,10 @@ const About = () => {
                         <img src={aboutImg} alt='About' />
                     </div>
                     <p>
-                        Hi. I'm NiMou, it's a pleasure to meet you. I'm a young
-                        man who loves to code and enjoys creating websites and
-                        templates. You can check my latest projects below.
+                        As a dedicated web developer, I thrive on transforming
+                        ideas into engaging online platforms. I offer a blend of
+                        creativity and technical expertise to build websites
+                        that not only look great but also deliver results.
                     </p>
                 </div>
             </div>
